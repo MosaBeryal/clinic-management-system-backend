@@ -1,0 +1,45 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Patient extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      this.hasMany(models.Consultation, { foreignKey: 'patientId' });
+      this.hasMany(models.MedicalBill, { foreignKey: 'patientId' });
+      this.hasMany(models.Medication, { foreignKey: 'patientId' });
+      this.hasMany(models.MedicalImagingExam, { foreignKey: 'patientId' });
+    }
+  }
+  Patient.init({
+    patientId: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false,
+      unique: true
+    },
+    patientName: DataTypes.STRING,
+    gender: DataTypes.STRING,
+    birthday: DataTypes.DATE,
+    issuancePolicyNumber: DataTypes.STRING,
+    address: DataTypes.TEXT,
+    phoneNumber: DataTypes.STRING,
+    email: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Patient',
+    // Include createdAt and updatedAt fields
+    timestamps: true,
+    // Specify the name of the createdAt column
+    createdAt: 'createdAt',
+    // Specify the name of the updatedAt column
+    updatedAt: 'updatedAt'
+  });
+  return Patient;
+};

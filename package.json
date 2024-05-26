@@ -1,0 +1,23 @@
+{
+  "name": "clinic-management-system",
+  "version": "1.0.0",
+  "description": "A comprehensive and user-friendly clinic management system designed to streamline the operations of medical clinics. Manage patient records, consultation histories, medical histories, medical imaging, and billing efficiently.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mosa Beryal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "nodemon": "^3.1.1",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}
