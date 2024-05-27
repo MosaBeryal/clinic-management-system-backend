@@ -11,12 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Patient, {
+        foreignKey: 'patientId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
+
       this.hasMany(models.BillingDetail, { foreignKey: 'medicalBillId' })
+
     }
   }
   MedicalBill.init({
     positionName: DataTypes.STRING,
-    patientId: DataTypes.INTEGER,
+    patientId: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     subtotal: DataTypes.DECIMAL,
     discount: DataTypes.DECIMAL,
     insuranceAdjustment: DataTypes.DECIMAL,

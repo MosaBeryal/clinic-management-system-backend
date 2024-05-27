@@ -115,9 +115,11 @@ exports.deleteMedication = async (req, res) => {
   const { id } = req.params;
   try {
     const medication = await Medication.findByPk(id);
+
     if (!medication) {
       return res.status(404).json({ error: "Medication not found" });
     }
+    
     await medication.destroy();
     res.json({ success: true, message: "Medication deleted successfully" });
   } catch (error) {

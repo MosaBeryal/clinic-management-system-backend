@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     medicalBillId: DataTypes.INTEGER
   }, {
     sequelize,
+    
     modelName: 'BillingDetail',
     // Include createdAt and updatedAt fields
     timestamps: true,

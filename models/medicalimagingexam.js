@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.Patient, {
-        foreignKey: 'patientId', // Set patientId as the foreign key in the MedicalImagingExam table
-        onDelete: 'CASCADE', // Add any cascade options if needed
+        foreignKey: 'patientId',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
     }
