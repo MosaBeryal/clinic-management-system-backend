@@ -1,22 +1,30 @@
-const { Consultation, Patient } = require('../models');
-const { Op } = require('sequelize');
-const { isValidDate } = require('../utils/utils');
-const { validationResult } = require('express-validator');
+const { Consultation, Patient } = require("../models");
+const { Op } = require("sequelize");
+const { isValidDate } = require("../utils/utils");
+const { validationResult } = require("express-validator");
 
 exports.getConsultations = async (req, res) => {
     try {
         const { patientId } = req.params;
         let { date } = req.query;
 
+        if (!patientId) {
+            return res.status(400).json({ message: "Patient ID is required." });
+        }
+
         // Validate if date is provided and in correct format
         if (date && !isValidDate(date)) {
-            return res.status(400).json({ error: 'Invalid date format. Date should be in YYYY-MM-DD format.' });
+            return res
+                .status(400)
+                .json({
+                    error: "Invalid date format. Date should be in YYYY-MM-DD format.",
+                });
         }
 
         // Build query options
         const queryOptions = {
             where: { patientId },
-            include: [{ model: Patient, attributes: ['patientName'] }],
+            include: [{ model: Patient, attributes: ["patientName"] }],
         };
 
         if (date) {
@@ -25,32 +33,28 @@ exports.getConsultations = async (req, res) => {
             const endDate = new Date(`${date}T23:59:59`);
 
             queryOptions.where.consultationDate = {
-                [Op.between]: [startDate, endDate]
+                [Op.between]: [startDate, endDate],
             };
         }
 
-        console.log(queryOptions)
+        console.log(queryOptions);
 
         // Fetch consultations
         const consultations = await Consultation.findAll(queryOptions);
 
         return res.json({ consultations });
-
     } catch (error) {
         console.error(error);
-        return res.status(500).json({ error: 'Server error' });
+        return res.status(500).json({ error: "Server error" });
     }
 };
 
 exports.addConsultation = async (req, res) => {
+
     try {
-        // Validate request using Express Validator
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
+        const { patientId } = req.params;
+        
         const {
-            patientId,
             doctorLicenseNumber,
             doctorName,
             reasonForConsultation,
@@ -60,8 +64,22 @@ exports.addConsultation = async (req, res) => {
             physicalExamFindings,
             assessmentAndPlan,
             patientInstructions,
-            consultationDate
+            consultationDate,
         } = req.body;
+
+        if (!patientId) {
+            return res.status(400).json({ error: "Patient ID is required." });
+        }
+
+        const patient = Patient.findOne({
+            where: {
+                patientId,
+            },
+        });
+
+        if (!patient) {
+            return res.status(400).json({ error: "Patient not found." });
+        }
 
         const newConsultation = await Consultation.create({
             patientId,
@@ -74,26 +92,22 @@ exports.addConsultation = async (req, res) => {
             physicalExamFindings,
             assessmentAndPlan,
             patientInstructions,
-            consultationDate
+            consultationDate,
         });
 
-        res.status(201).json(
-            {
-                success: true,
-                data: newConsultation,
-                message: "Consultation added successfully"
-
-            });
+        res.status(201).json({
+            success: true,
+            data: newConsultation,
+            message: "Consultation added successfully",
+        });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: "Server error" });
     }
 };
 
-
 exports.updateConsultation = async (req, res) => {
     try {
-
         const consultationId = req.params.id;
 
         const updateFields = req.body;
@@ -101,21 +115,20 @@ exports.updateConsultation = async (req, res) => {
         // Update the consultation with the provided fields
         await Consultation.update(updateFields, { where: { id: consultationId } });
 
-        res.status(200).json({ message: 'Consultation updated successfully' });
+        res.status(200).json({ message: "Consultation updated successfully" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: "Server error" });
     }
 };
-
 
 exports.deleteConsultation = async (req, res) => {
     try {
         const consultationId = req.params.id;
         await Consultation.destroy({ where: { id: consultationId } });
-        res.status(200).json({ message: 'Consultation deleted successfully' });
+        res.status(200).json({ message: "Consultation deleted successfully" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: "Server error" });
     }
 };
