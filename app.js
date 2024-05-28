@@ -27,12 +27,15 @@ app.use('/api/imaging-exam/', imagingExamRoutes)
 app.use('/api/medical-billing/', medicalBillingRoutes)
 
 
-app.listen(PORT, async () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-    try {
-        await sequelize.authenticate();
-        console.log('Database connected!');
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
+// Sync models with the database
+sequelize.sync({ alter: true }) // alter: true will update the schema without dropping tables
+    .then(() => {
+        console.log('Database & tables synchronized!');
+    })
+    .catch(error => {
+        console.error('Unable to sync the database:', error);
+    });
+
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}`);
 });
