@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models').User;
+const bcrypt = require("bcryptjs")
 
 exports.signIn = async (req, res) => {
     try {
@@ -17,8 +18,7 @@ exports.signIn = async (req, res) => {
         }
 
         // Compare passwords
-        // const isMatch = await bcrypt.compare(password, user.password);
-        const isMatch = String(password) === user.password
+        const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
             return res.status(400).json({ msg: "Incorrect password" });
@@ -46,3 +46,53 @@ exports.signIn = async (req, res) => {
         res.status(500).send("Server error");
     }
 };
+
+
+// Signup route
+exports.signUp = async (req, res) => {
+    try {
+        const { firstName, lastName, email, password, role } = req.body;
+
+        // Validate input
+        if (!firstName || !lastName || !email || !password) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        // Check if user already exists
+        const existingUser = await User.findOne({ where: { email } });
+        if (existingUser) {
+            return res.status(400).json({ message: 'User with this email already exists' });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create a new user
+        const newUser = await User.create({
+            firstName,
+            lastName,
+            email,
+            password: hashedPassword,
+            role: role || 'admin' // default to 'admin' if role is not provided
+        });
+
+        // Return the created user (without password)
+        const userResponse = {
+            id: newUser.id,
+            firstName: newUser.firstName,
+            lastName: newUser.lastName,
+            email: newUser.email,
+            role: newUser.role,
+            createdAt: newUser.createdAt,
+            updatedAt: newUser.updatedAt,
+        };
+
+        return res.status(201).json({
+            message: 'User created successfully',
+            user: userResponse
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+}
