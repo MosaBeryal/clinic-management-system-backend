@@ -31,6 +31,8 @@ exports.signIn = async (req, res) => {
             }
         };
 
+        delete user.password
+        
         jwt.sign(
             payload,
             // process.env.JWT_SECRET,
