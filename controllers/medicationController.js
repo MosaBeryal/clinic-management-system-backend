@@ -1,4 +1,5 @@
 const Medication = require("../models").Medication;
+const Patient = require("../models").Patient;
 const { validationResult } = require("express-validator");
 const { isValidDate } = require("../utils/utils");
 
@@ -35,9 +36,21 @@ exports.getMedications = async (req, res) => {
 
 // Add a new medication
 exports.addMedication = async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+  const { patientId } = req.params;
+
+
+  if (!patientId) {
+    return res.status(400).json({ error: "Patient ID is required." });
+  }
+
+  const patient = Patient.findOne({
+    where: {
+      patientId
+    }
+  })
+
+  if (!patient) {
+    return res.status(404).json({ error: "Patient not found." });
   }
 
   const {
@@ -54,7 +67,6 @@ exports.addMedication = async (req, res) => {
     medicationDate,
     medicalConditions,
     patientInstructions,
-    patientId,
   } = req.body;
 
   try {
@@ -119,7 +131,7 @@ exports.deleteMedication = async (req, res) => {
     if (!medication) {
       return res.status(404).json({ error: "Medication not found" });
     }
-    
+
     await medication.destroy();
     res.json({ success: true, message: "Medication deleted successfully" });
   } catch (error) {
