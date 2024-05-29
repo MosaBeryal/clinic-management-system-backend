@@ -1,6 +1,5 @@
-
-const { where } = require('sequelize');
-const { MedicalBill, BillingDetail, Patient } = require('../models');
+const { where } = require("sequelize");
+const { MedicalBill, BillingDetail, Patient } = require("../models");
 
 exports.getBillsByPatientId = async (req, res) => {
     try {
@@ -10,8 +9,11 @@ exports.getBillsByPatientId = async (req, res) => {
         const queryOptions = {
             where: { patientId },
             include: [
-                { model: Patient, attributes: ['patientName', 'patientId'] },
-                { model: BillingDetail, attributes: ['service', 'procedureCode', 'charge'] }
+                { model: Patient, attributes: ["patientName", "patientId"] },
+                {
+                    model: BillingDetail,
+                    attributes: ["id", "service", "procedureCode", "charge"],
+                },
             ],
         };
 
@@ -24,11 +26,9 @@ exports.getBillsByPatientId = async (req, res) => {
         return res.json({ success: true, data: bills });
     } catch (error) {
         console.error(error);
-        return res.status(500).json({ error: 'Server error' });
+        return res.status(500).json({ error: "Server error" });
     }
 };
-
-
 
 exports.addBill = async (req, res) => {
     try {
@@ -36,21 +36,20 @@ exports.addBill = async (req, res) => {
 
         if (!patientId) {
             return res.status(400).json({
-                message:
-                    'Patient ID is required'
-            })
+                message: "Patient ID is required",
+            });
         }
 
         const patient = Patient.findOne({
             where: {
-                patientId
-            }
-        })
+                patientId,
+            },
+        });
 
         if (!patient) {
             return res.status(404).json({
-                message: 'Patient not found'
-            })
+                message: "Patient not found",
+            });
         }
 
         const {
@@ -62,7 +61,7 @@ exports.addBill = async (req, res) => {
             totalAmountDue,
             paymentInfo,
             paymentMethod,
-            billingDetails
+            billingDetails,
         } = req.body;
 
         const newBill = await MedicalBill.create({
@@ -74,14 +73,14 @@ exports.addBill = async (req, res) => {
             billingDate,
             totalAmountDue,
             paymentInfo,
-            paymentMethod
+            paymentMethod,
         });
 
         if (billingDetails && billingDetails.length > 0) {
             for (let detail of billingDetails) {
                 await BillingDetail.create({
                     ...detail,
-                    medicalBillId: newBill.id
+                    medicalBillId: newBill.id,
                 });
             }
         }
@@ -89,22 +88,24 @@ exports.addBill = async (req, res) => {
         const createdBill = await MedicalBill.findOne({
             where: { id: newBill.id },
             include: [
-                { model: Patient, attributes: ['patientName', 'patientId'] },
-                { model: BillingDetail, attributes: ['service', 'procedureCode', 'charge'] }
-            ]
+                { model: Patient, attributes: ["patientName", "patientId"] },
+                {
+                    model: BillingDetail,
+                    attributes: ["service", "procedureCode", "charge"],
+                },
+            ],
         });
 
         res.status(201).json({
             success: true,
             data: createdBill,
-            message: "Medical bill added successfully"
+            message: "Medical bill added successfully",
         });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: "Server error" });
     }
 };
-
 
 exports.updateBill = async (req, res) => {
     try {
@@ -116,7 +117,7 @@ exports.updateBill = async (req, res) => {
         if (updateFields.billingDetails) {
             for (let detail of updateFields.billingDetails) {
                 await BillingDetail.update(detail, {
-                    where: { medicalBillId: id, procedureCode: detail.procedureCode }
+                    where: { id: detail.id, medicalBillId: id, procedureCode: detail.procedureCode },
                 });
             }
         }
@@ -124,15 +125,23 @@ exports.updateBill = async (req, res) => {
         const updatedBill = await MedicalBill.findOne({
             where: { id },
             include: [
-                { model: Patient, attributes: ['patientName', 'patientId'] },
-                { model: BillingDetail, attributes: ['service', 'procedureCode', 'charge'] }
-            ]
+                { model: Patient, attributes: ["patientName", "patientId"] },
+                {
+                    model: BillingDetail,
+                    attributes: ["service", "procedureCode", "charge"],
+                },
+            ],
         });
 
-        res.status(200).json({ message: 'Medical bill updated successfully', data: updatedBill });
+        res
+            .status(200)
+            .json({
+                message: "Medical bill updated successfully",
+                data: updatedBill,
+            });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: "Server error" });
     }
 };
 
@@ -141,14 +150,16 @@ exports.deleteBill = async (req, res) => {
         const { id } = req.params;
 
         if (!id) {
-            return res.status(400).json({ message: "Medical Bill ID is required in params" });
+            return res
+                .status(400)
+                .json({ message: "Medical Bill ID is required in params" });
         }
 
         const medicalBill = await MedicalBill.findOne({
             where: {
-                id: id
-            }
-        })
+                id: id,
+            },
+        });
 
         if (!medicalBill) {
             return res.status(404).json({ message: "Medical Bill not found" });
@@ -158,11 +169,9 @@ exports.deleteBill = async (req, res) => {
 
         await MedicalBill.destroy({ where: { id } });
 
-
-
-        res.status(200).json({ message: 'Medical bill deleted successfully' });
+        res.status(200).json({ message: "Medical bill deleted successfully" });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: "Server error" });
     }
 };
