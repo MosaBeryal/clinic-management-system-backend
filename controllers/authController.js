@@ -4,7 +4,6 @@ const bcrypt = require("bcryptjs")
 
 exports.signIn = async (req, res) => {
     try {
-        console.log(req.body)
         const { email, password } = req.body;
 
         // Check if user exists
@@ -31,16 +30,18 @@ exports.signIn = async (req, res) => {
             }
         };
 
-        delete user.password
-        
+        // Convert user instance to plain object and remove password
+        const userWithoutPassword = user.get({ plain: true });
+        delete userWithoutPassword.password;
+
         jwt.sign(
             payload,
-            // process.env.JWT_SECRET,
-            "Edsadasd",
+            process.env.JWT_SECRET || "defaultSecret", // Use environment variable for JWT secret
             { expiresIn: "1h" },
             (err, token) => {
                 if (err) throw err;
-                res.json({ user: user, message: "Logged in!", token });
+
+                res.json({ user: userWithoutPassword, message: "Logged in!", token });
             }
         );
     } catch (err) {
