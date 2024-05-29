@@ -4,7 +4,7 @@ const imagingExamController = require('../controllers/imagingExamController');
 
 router.get('/:patientId', imagingExamController.getImagingExams);
 
-router.post('/', imagingExamController.addImagingExam);
+router.post('/:patientId', imagingExamController.addImagingExam);
 
 router.patch('/:id', imagingExamController.updateImagingExam);
 

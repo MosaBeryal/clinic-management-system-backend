@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
 const { MedicalImagingExam, Patient } = require('../models');
+const { removeTicks } = require('sequelize/lib/utils');
 
 exports.getImagingExams = async (req, res) => {
     try {
@@ -28,8 +29,23 @@ exports.getImagingExams = async (req, res) => {
 
 exports.addImagingExam = async (req, res) => {
     try {
+        const { patientId } = req.params;
+
+        if (!patientId) {
+            return res.status(400).json({ error: "Patient ID is required." });
+        }
+
+        const patient = Patient.findOne({
+            where: {
+                patientId,
+            },
+        });
+
+        if (!patient) {
+            return res.status(400).json({ error: "Patient not found." });
+        }
+
         const {
-            patientId,
             examType,
             examDate,
             findings,
