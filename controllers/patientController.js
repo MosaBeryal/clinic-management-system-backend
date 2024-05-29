@@ -8,10 +8,12 @@ exports.getAllPatients = async (req, res) => {
 
         let patients;
 
+        console.log(searchTerm)
+
         if (searchTerm) {
             patients = await Patient.findAll({
                 where: {
-                    firstName: {
+                    patientName: {
                         [Op.like]: `%${searchTerm}%`
                     }
                 }
