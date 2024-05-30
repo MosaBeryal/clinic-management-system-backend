@@ -33,6 +33,31 @@ exports.getAllPatients = async (req, res) => {
     }
 };
 
+exports.getPatient = async (req, res) => {
+    try {
+
+        const { patientId } = req.params;
+
+        if (!patientId) {
+            return res
+                .status(400)
+                .json({ message: "Patient ID is required in params" });
+        }
+        
+        const patient = await Patient.findByPk(patientId);
+        // If no patient is found, return a 404 status
+        if (!patient) {
+            return res.status(404).json({ message: "Patient not found" });
+        }
+
+        // If a patient is found, return it with a 200 status
+        res.status(200).json(patient);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Server error" });
+    }
+};
+
 // Controller for adding a new patient
 exports.addPatient = async (req, res) => {
     try {
