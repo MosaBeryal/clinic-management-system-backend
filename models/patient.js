@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { calculateAge } = require('../utils/utils');
 module.exports = (sequelize, DataTypes) => {
   class Patient extends Model {
     /**
@@ -28,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     gender: DataTypes.STRING,
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
+    age: DataTypes.INTEGER,
     birthday: DataTypes.DATE,
     issuancePolicyNumber: DataTypes.STRING,
     address: DataTypes.TEXT,
@@ -36,6 +38,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Patient',
+    hooks: {
+      beforeSave: (patient) => {
+        patient.age = calculateAge(patient.birthday);
+      }
+    },
     // Include createdAt and updatedAt fields
     timestamps: true,
     // Specify the name of the createdAt column
