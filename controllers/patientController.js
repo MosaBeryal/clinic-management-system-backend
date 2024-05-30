@@ -43,7 +43,7 @@ exports.getPatient = async (req, res) => {
                 .status(400)
                 .json({ message: "Patient ID is required in params" });
         }
-        
+
         const patient = await Patient.findByPk(patientId);
         // If no patient is found, return a 404 status
         if (!patient) {
@@ -82,6 +82,10 @@ exports.addPatient = async (req, res) => {
             return res.status(400).json({ message: "Patient already exists" });
         }
 
+        const firstName = patientName.split(" ")[0]
+        
+        const lastName = patientName.split(" ")[1]
+
         const newPatient = await Patient.create({
             patientId,
             patientName,
@@ -91,6 +95,8 @@ exports.addPatient = async (req, res) => {
             address,
             phoneNumber,
             email,
+            firstName,
+            lastName
         });
         res
             .status(201)
