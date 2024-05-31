@@ -67,6 +67,8 @@ exports.addConsultation = async (req, res) => {
             consultationDate,
         } = req.body;
 
+        console.log(physicalExaminationFindings)
+
         if (!patientId) {
             return res.status(400).json({ error: "Patient ID is required." });
         }
