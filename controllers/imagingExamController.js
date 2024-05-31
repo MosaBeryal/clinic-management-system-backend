@@ -1,6 +1,5 @@
 const { Op } = require('sequelize');
 const { MedicalImagingExam, Patient } = require('../models');
-const { removeTicks } = require('sequelize/lib/utils');
 
 exports.getImagingExams = async (req, res) => {
     try {
@@ -73,6 +72,7 @@ exports.addImagingExam = async (req, res) => {
             radiologistName,
             examDate,
             examType,
+            radiologistMedicalLicense,
             clinicalIndication,
             previousImagingStudies,
             results,
@@ -87,6 +87,7 @@ exports.addImagingExam = async (req, res) => {
             medicalLicenseNumber,
             doctorName,
             radiologistName,
+            radiologistMedicalLicense,
             examDate,
             examType,
             clinicalIndication,
