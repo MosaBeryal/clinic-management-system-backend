@@ -53,7 +53,7 @@ exports.addConsultation = async (req, res) => {
 
     try {
         const { patientId } = req.params;
-        
+
         const {
             doctorLicenseNumber,
             doctorName,
@@ -61,7 +61,7 @@ exports.addConsultation = async (req, res) => {
             medicationReview,
             socialHistory,
             reviewOfSystems,
-            physicalExamFindings,
+            physicalExaminationFindings,
             assessmentAndPlan,
             patientInstructions,
             consultationDate,
@@ -89,7 +89,7 @@ exports.addConsultation = async (req, res) => {
             medicationReview,
             socialHistory,
             reviewOfSystems,
-            physicalExamFindings,
+            physicalExaminationFindings,
             assessmentAndPlan,
             patientInstructions,
             consultationDate,
