@@ -68,18 +68,34 @@ exports.addImagingExam = async (req, res) => {
         }
 
         const {
-            examType,
+            medicalLicenseNumber,
+            doctorName,
+            radiologistName,
             examDate,
-            findings,
-            recommendations
+            examType,
+            clinicalIndication,
+            previousImagingStudies,
+            results,
+            imagingExamDate,
+            abnormalities,
+            impressions,
+            recommendations,
         } = req.body;
 
         const newExam = await MedicalImagingExam.create({
             patientId,
-            examType,
+            medicalLicenseNumber,
+            doctorName,
+            radiologistName,
             examDate,
-            findings,
-            recommendations
+            examType,
+            clinicalIndication,
+            previousImagingStudies,
+            results,
+            imagingExamDate,
+            abnormalities,
+            impressions,
+            recommendations,
         });
 
         res.status(201).json({
