@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   Consultation.init({
     medicalLicenseNumber: DataTypes.STRING,
     doctorName: DataTypes.STRING,
+    doctorLicenseNumber:DataTypes.STRING,
     reasonForConsultation: DataTypes.TEXT,
     medicationReview: DataTypes.TEXT,
     socialHistory: DataTypes.TEXT,
