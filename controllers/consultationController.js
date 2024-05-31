@@ -49,6 +49,28 @@ exports.getConsultations = async (req, res) => {
     }
 };
 
+exports.getConsultationById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log(id)
+
+        if (!id) {
+            return res.status(400).json({ message: "Consultation Id is required." });
+        }
+
+        const consultations = await Consultation.findByPk(id);
+
+        if(!consultations){
+            return res.status(404).json({ message: "Consultation not found." });
+        }
+
+        return res.json({ consultations });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Server error" });
+    }
+};
+
 exports.addConsultation = async (req, res) => {
 
     try {
