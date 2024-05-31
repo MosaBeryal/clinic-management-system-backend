@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 const imagingExamController = require('../controllers/imagingExamController');
 
-router.get('/:patientId', imagingExamController.getImagingExams);
+router.get('/patient/:patientId', imagingExamController.getImagingExams);
+
+
+router.get('/:id', imagingExamController.getImagingExamsById);
 
 router.post('/:patientId', imagingExamController.addImagingExam);
 

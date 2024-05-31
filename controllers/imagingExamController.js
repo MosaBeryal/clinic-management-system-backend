@@ -27,6 +27,28 @@ exports.getImagingExams = async (req, res) => {
 };
 
 
+exports.getImagingExamsById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(400).json({ error: 'Imaging Exam Id is required' });
+        }
+
+        const exams = await MedicalImagingExam.findByPk(id);
+
+        if (!exams) {
+            return res.status(404).json({ error: 'Imaging Exam not found' });
+        }
+
+        res.status(200).json({ success: true, data: exams });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
+};
+
+
 exports.addImagingExam = async (req, res) => {
     try {
         const { patientId } = req.params;
