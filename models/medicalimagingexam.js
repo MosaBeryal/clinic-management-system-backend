@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     medicalLicenseNumber: DataTypes.STRING,
     doctorName: DataTypes.STRING,
     radiologistName: DataTypes.STRING,
+    radiologistMedicalLicense: DataTypes.STRING,
     examDate: DataTypes.DATE,
     examType: DataTypes.STRING,
     clinicalIndication: DataTypes.TEXT,
