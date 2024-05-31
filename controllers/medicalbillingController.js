@@ -30,6 +30,28 @@ exports.getBillsByPatientId = async (req, res) => {
     }
 };
 
+
+exports.getBillsById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(400).json({ error: "Medical Bill is required" });
+        }
+
+        const bills = await MedicalBill.findByPk(id);
+
+        if (!bills) {
+            return res.status(404).json({ error: "Medical Bill not found" });
+        }
+
+        return res.json({ success: true, data: bills });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Server error" });
+    }
+};
+
 exports.addBill = async (req, res) => {
     try {
         const { patientId } = req.params;
