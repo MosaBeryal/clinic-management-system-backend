@@ -34,6 +34,60 @@ exports.getMedications = async (req, res) => {
   }
 };
 
+// Get medications medication Id
+exports.getMedicationsById = async (req, res) => {
+  try {
+
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({ error: "Medication ID is required." })
+    }
+
+    const medications = await Medication.findByPk(id);
+
+    if (!medications) {
+      return res.status(404).json({ error: "Medication not found." })
+    }
+
+    res.json({ medications });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+// Get medications by patient ID or date
+exports.getMedications = async (req, res) => {
+  const { patientId } = req.params;
+
+  console.log(patientId);
+
+  const { date } = req.query;
+  try {
+    if (date && !isValidDate(date)) {
+      return res
+        .status(400)
+        .json({
+          error: "Invalid date format. Date should be in YYYY-MM-DD format.",
+        });
+    }
+
+    let medications;
+    if (patientId && date) {
+      medications = await Medication.findAll({
+        where: { patientId, medicationDate: date },
+      });
+    } else if (patientId) {
+      medications = await Medication.findAll({ where: { patientId } });
+    }
+    res.json({ medications });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
 // Add a new medication
 exports.addMedication = async (req, res) => {
   const { patientId } = req.params;
