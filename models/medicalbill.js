@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   MedicalBill.init({
-    positionName: DataTypes.STRING,
+    staffPosition: DataTypes.STRING,
+    staffName: DataTypes.STRING,
     patientId: {
       type: DataTypes.STRING,
       allowNull: false
@@ -32,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     insuranceAdjustment: DataTypes.DECIMAL,
     billingDate: DataTypes.DATE,
     totalAmountDue: DataTypes.DECIMAL,
-    paymentInfo: DataTypes.TEXT,
+    paymentDate: DataTypes.DATE,
     paymentMethod: DataTypes.STRING
   }, {
     sequelize,
