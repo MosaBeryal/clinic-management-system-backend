@@ -100,7 +100,7 @@ exports.addBill = async (req, res) => {
             staffPosition,
             staffName,
             totalAmountDue,
-            paymentInfo,
+            paymentDate,
             paymentMethod,
             billingDetails,
         } = req.body;
@@ -115,7 +115,7 @@ exports.addBill = async (req, res) => {
             insuranceAdjustment,
             billingDate,
             totalAmountDue,
-            paymentInfo,
+            paymentDate,
             paymentMethod,
         });
 
