@@ -29,8 +29,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     subtotal: DataTypes.DECIMAL,
-    discount: DataTypes.DECIMAL,
-    insuranceAdjustment: DataTypes.DECIMAL,
+    discount: {
+      type: DataTypes.DECIMAL,
+      defaultValue: 0
+    },
+    insuranceAdjustment: {
+      type: DataTypes.DECIMAL,
+      defaultValue: 0
+    },
     billingDate: DataTypes.DATE,
     totalAmountDue: DataTypes.DECIMAL,
     paymentDate: DataTypes.DATE,
