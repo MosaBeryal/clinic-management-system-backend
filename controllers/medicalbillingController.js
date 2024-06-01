@@ -1,6 +1,7 @@
 const { where } = require("sequelize");
 const { MedicalBill, BillingDetail, Patient } = require("../models");
-const {Op} = require("sequelize")
+const { Op } = require("sequelize");
+const medicalbill = require("../models/medicalbill");
 
 exports.getBillsByPatientId = async (req, res) => {
     try {
@@ -45,7 +46,17 @@ exports.getBillsById = async (req, res) => {
             return res.status(400).json({ error: "Medical Bill is required" });
         }
 
-        const bills = await MedicalBill.findByPk(id);
+
+        const bills = await MedicalBill.findOne({
+            where: { id },
+            include: [
+                {
+                    model: BillingDetail,
+                    where: { medicalBillId: id },
+                    attributes: ["id", "service", "procedureCode", "charge"],
+                },
+            ]
+        });
 
         if (!bills) {
             return res.status(404).json({ error: "Medical Bill not found" });
