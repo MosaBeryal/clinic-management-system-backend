@@ -2,6 +2,7 @@ const Medication = require("../models").Medication;
 const Patient = require("../models").Patient;
 const { validationResult } = require("express-validator");
 const { isValidDate } = require("../utils/utils");
+const { Op } = require("sequelize")
 
 // Get medications by patient ID or date
 exports.getMedications = async (req, res) => {
@@ -20,13 +21,19 @@ exports.getMedications = async (req, res) => {
     }
 
     let medications;
+
     if (patientId && date) {
       medications = await Medication.findAll({
-        where: { patientId, medicationDate: date },
+        where: {
+          patientId, createdAt: {
+            [Op.between]: [new Date(date), new Date(date + " 23:59:59")] 
+          }
+        },
       });
     } else if (patientId) {
       medications = await Medication.findAll({ where: { patientId } });
     }
+
     res.json({ medications });
   } catch (error) {
     console.error(error);
@@ -65,6 +72,7 @@ exports.getMedications = async (req, res) => {
 
   const { date } = req.query;
   try {
+
     if (date && !isValidDate(date)) {
       return res
         .status(400)
@@ -74,14 +82,25 @@ exports.getMedications = async (req, res) => {
     }
 
     let medications;
+
+
     if (patientId && date) {
+      // Assuming `date` is a specific date you want to match
       medications = await Medication.findAll({
-        where: { patientId, medicationDate: date },
+        where: {
+          patientId,
+          createdAt: {
+            [Op.between]: [new Date(date), new Date(date + " 23:59:59")] // Assuming you want to include all entries on the specified date
+          }
+        }
       });
     } else if (patientId) {
       medications = await Medication.findAll({ where: { patientId } });
     }
+
+
     res.json({ medications });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
@@ -140,6 +159,8 @@ exports.addMedication = async (req, res) => {
       patientInstructions,
       patientId,
     });
+
+    console.log(newMedication)
 
     res
       .status(201)

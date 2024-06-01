@@ -1,5 +1,6 @@
 const { where } = require("sequelize");
 const { MedicalBill, BillingDetail, Patient } = require("../models");
+const {Op} = require("sequelize")
 
 exports.getBillsByPatientId = async (req, res) => {
     try {
@@ -18,7 +19,12 @@ exports.getBillsByPatientId = async (req, res) => {
         };
 
         if (date) {
-            queryOptions.where.billingDate = date;
+            const startDate = new Date(`${date}T00:00:00`);
+            const endDate = new Date(`${date}T23:59:59`);
+
+            queryOptions.where.createdAt = {
+                [Op.between]: [startDate, endDate],
+            };
         }
 
         const bills = await MedicalBill.findAll(queryOptions);

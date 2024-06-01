@@ -5,7 +5,9 @@ const { validationResult } = require("express-validator");
 
 exports.getConsultations = async (req, res) => {
     try {
+
         const { patientId } = req.params;
+
         let { date } = req.query;
 
         if (!patientId) {
@@ -32,7 +34,7 @@ exports.getConsultations = async (req, res) => {
             const startDate = new Date(`${date}T00:00:00`);
             const endDate = new Date(`${date}T23:59:59`);
 
-            queryOptions.where.consultationDate = {
+            queryOptions.where.createdAt = {
                 [Op.between]: [startDate, endDate],
             };
         }
@@ -60,7 +62,7 @@ exports.getConsultationById = async (req, res) => {
 
         const consultations = await Consultation.findByPk(id);
 
-        if(!consultations){
+        if (!consultations) {
             return res.status(404).json({ message: "Consultation not found." });
         }
 

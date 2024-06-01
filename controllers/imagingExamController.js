@@ -12,8 +12,11 @@ exports.getImagingExams = async (req, res) => {
         };
 
         if (date) {
-            queryOptions.where.examDate = {
-                [Op.eq]: new Date(date)
+            const startDate = new Date(`${date}T00:00:00`);
+            const endDate = new Date(`${date}T23:59:59`);
+
+            queryOptions.where.createdAt = {
+                [Op.between]: [startDate, endDate],
             };
         }
 
