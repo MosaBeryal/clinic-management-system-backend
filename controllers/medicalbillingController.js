@@ -91,7 +91,7 @@ exports.addBill = async (req, res) => {
             });
         }
 
-        const {
+        let {
             positionName,
             subtotal,
             discount,
@@ -104,6 +104,19 @@ exports.addBill = async (req, res) => {
             paymentMethod,
             billingDetails,
         } = req.body;
+
+        if (!insuranceAdjustment) {
+            insuranceAdjustment = 0;
+        }
+
+        if (!totalAmountDue) {
+            totalAmountDue = 0;
+        }
+
+        if (!discount) {
+            discount = 0;
+        }
+
 
         const newBill = await MedicalBill.create({
             positionName,
