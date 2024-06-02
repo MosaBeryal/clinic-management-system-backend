@@ -1,5 +1,6 @@
 const express = require('express');
 const { sequelize } = require('./models');
+const path = require("path")
 var cors = require('cors')
 require('dotenv').config()
 
@@ -23,6 +24,10 @@ app.use(cors())
 
 app.use(express.json());
 
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use('/api/auth/', authRoutes);
 app.use('/api/patient/', patientRoutes);
 app.use('/api/consultation/', consultationRoutes);
@@ -30,6 +35,11 @@ app.use('/api/medication/', medicationRoutes);
 app.use('/api/imaging-exam/', imagingExamRoutes)
 app.use('/api/medical-billing/', medicalBillingRoutes)
 
+// Serve index.html file when someone accesses the main route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
+  
 
 sequelize.sync({ alter: true })
     .then(() => {
