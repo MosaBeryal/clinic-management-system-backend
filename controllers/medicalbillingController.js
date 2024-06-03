@@ -166,6 +166,7 @@ exports.addBill = async (req, res) => {
 exports.updateBill = async (req, res) => {
     try {
         const { id } = req.params;
+
         const updateFields = req.body;
 
         await MedicalBill.update(updateFields, { where: { id } });

@@ -122,10 +122,10 @@ exports.deletePatient = async (req, res) => {
             },
         });
         if (!patient) {
-            return res.status(404).json({ msg: "Patient not found" });
+            return res.status(404).json({ message: "Patient not found" });
         }
         await patient.destroy();
-        res.status(200).json({ msg: "Patient deleted" });
+        res.status(200).json({ message: "Patient deleted" });
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Server error");

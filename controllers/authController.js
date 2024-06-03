@@ -13,14 +13,14 @@ exports.signIn = async (req, res) => {
             }
         });
         if (!user) {
-            return res.status(400).json({ msg: "User does not exist" });
+            return res.status(400).json({ message: "User does not exist" });
         }
 
         // Compare passwords
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-            return res.status(400).json({ msg: "Incorrect password" });
+            return res.status(400).json({message: "Incorrect password" });
         }
 
         // Create and return JWT token
