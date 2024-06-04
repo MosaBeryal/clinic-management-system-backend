@@ -128,32 +128,30 @@ exports.getAllUser = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     const { passwordUpdate } = req.query;
-
     const { userId } = req.params;
-
     let updateFields = req.body;
-
-    console.log(updateFields);
 
     if (passwordUpdate) {
       const user = await User.findByPk(userId);
 
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
       const { oldPassword, newPassword } = req.body;
 
-      if (!oldPassword && !newPassword) {
-        return res.send(400).json({
+      if (!oldPassword || !newPassword) {
+        return res.status(400).json({
           message: "Old password and new password are required",
         });
       }
 
-      //compare user password with hash
+      // Compare user password with hash
       const isMatch = await bcrypt.compare(oldPassword, user.password);
 
       if (isMatch) {
         const hashedPassword = await bcrypt.hash(newPassword, 10);
-        updateFields = {
-          password: hashedPassword,
-        };
+        updateFields.password = hashedPassword;
       } else {
         return res.status(400).json({
           message: "Old password is incorrect",
@@ -161,20 +159,20 @@ exports.updateUser = async (req, res) => {
       }
     }
 
-    const updatedUser = await User.update(updateFields, {
+    const [updatedRowCount] = await User.update(updateFields, {
       where: { id: userId },
     });
 
-    if (updatedUser === 0) {
-      return res.status(400).json({ message: "User not found" });
+    if (updatedRowCount === 0) {
+      return res
+        .status(404)
+        .json({ message: "User not found or no changes made" });
     }
 
     res.status(200).json({
-      message: `${
-        passwordUpdate
-          ? "Password updated successfully"
-          : "User updated successfully"
-      }`,
+      message: passwordUpdate
+        ? "Password updated successfully"
+        : "User updated successfully",
     });
   } catch (error) {
     console.error(error);
