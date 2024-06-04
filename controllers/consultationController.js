@@ -94,7 +94,7 @@ exports.addConsultation = async (req, res) => {
         console.log(physicalExaminationFindings)
 
         if (!patientId) {
-            return res.status(400).json({ error: "Patient ID is required." });
+            return res.status(400).json({ message: "Patient ID is required." });
         }
 
         const patient = Patient.findOne({
@@ -126,6 +126,7 @@ exports.addConsultation = async (req, res) => {
             data: newConsultation,
             message: "Consultation added successfully",
         });
+        
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Server error" });
