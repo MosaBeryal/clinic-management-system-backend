@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models").User;
+const { Op } = require("sequelize");
 const bcrypt = require("bcryptjs");
 
 exports.signIn = async (req, res) => {
@@ -99,6 +100,24 @@ exports.signUp = async (req, res) => {
       message: "User created successfully",
       user: userResponse,
     });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.getAllUser = async (req, res) => {
+  try {
+    const users = await User.findAll({
+      where: {
+        role: {
+          [Op.ne]: "admin",
+        },
+      },
+      attributes: { exclude: ["password"] },
+    });
+
+    return res.status(200).json(users);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal server error" });
