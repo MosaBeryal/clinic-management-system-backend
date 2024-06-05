@@ -17,12 +17,17 @@ module.exports = (sequelize, DataTypes) => {
       lastName: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
+      status: {
+        type: DataTypes.ENUM("active", "blocked"),
+        allowNull: false,
+        defaultValue: "active",
+      },
       isBlocked: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
       role: {
-        type: Sequelize.ENUM(
+        type: DataTypes.ENUM(
           "admin",
           "doctor",
           "replacing doctor",
@@ -35,6 +40,16 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "User",
+      //hook to set value of status to blocked when isBlocked is true
+      hooks: {
+        beforeSave: async (user, options) => {
+          if (user.isBlocked) {
+            user.status = "blocked";
+          } else {
+            user.status = "active";
+          }
+        },
+      },
       // Include createdAt and updatedAt fields
       timestamps: true,
       // Specify the name of the createdAt column

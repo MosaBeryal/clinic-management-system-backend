@@ -129,7 +129,7 @@ exports.updateUser = async (req, res) => {
   try {
     const { passwordUpdate } = req.query;
     const { userId } = req.params;
-    let updateFields = req.body;
+    let updateFields = { ...req.body };
 
     if (passwordUpdate) {
       const user = await User.findByPk(userId);
@@ -159,6 +159,11 @@ exports.updateUser = async (req, res) => {
       }
     }
 
+    // Ensure isBlocked is handled
+    if (updateFields.isBlocked !== undefined) {
+      updateFields.status = updateFields.isBlocked ? "blocked" : "active";
+    }
+
     const [updatedRowCount] = await User.update(updateFields, {
       where: { id: userId },
     });
@@ -183,7 +188,7 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
   try {
     const { userId } = req.params;
-    
+
     const deletedRowCount = await User.destroy({
       where: { id: userId },
     });
@@ -195,7 +200,6 @@ exports.deleteUser = async (req, res) => {
     res.status(200).json({
       message: "User deleted successfully",
     });
-    
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal server error" });
