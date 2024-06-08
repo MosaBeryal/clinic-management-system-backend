@@ -1,0 +1,18 @@
+{
+  "medical_bill_item": {
+    "staff_information": "Informationen zum Abrechnungspersonal",
+    "position": "Position",
+    "staff_name": "Name des Personals",
+    "billing_details": "Abrechnungsdetails",
+    "service": "Dienstleistung",
+    "CPT_code": "Prozedurcode (CPT-Code)",
+    "charges": "Gebühren",
+    "subtotal": "Zwischensumme",
+    "discount": "Rabatt",
+    "insurance_adjustment": "Versicherungsanpassung",
+    "total_amount_due": "Gesamtbetrag",
+    "payment_information": "Zahlungsinformationen",
+    "date_of_payment": "Zahlungsdatum",
+    "payment_method": "Zahlungsmethode"
+  }
+}

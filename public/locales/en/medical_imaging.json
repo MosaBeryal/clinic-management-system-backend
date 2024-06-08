@@ -1,0 +1,21 @@
+{
+  "medical_imaging_item": {
+    "ref_physician_info": "Referring Physician Information",
+    "MDN": "Medical License Number",
+    "doctor_name": "Doctor Name",
+    "interpreting_radiologist_info": "Interpreting Radiologist Information",
+    "MDNRadiologist": "Medical License Number",
+    "radiologist_name": "Radiologist Name",
+    "exam_details": "Exam Details",
+    "imaging_exam_date": "Date of Imaging Exam",
+    "imaging_exam": "Type of Imaging Exam",
+    "clinical_indication": "Clinical Indication",
+    "Pre_imaging_studies": "Previous Imaging Studies",
+    "imaging_findings": "Imaging Findings",
+    "results": "Results",
+    "abnormilities": "Abnormilities",
+    "impressions_and_recommendations": "Impressions & Recommendations",
+    "impressions": "Impressions",
+    "recommendations": "Recommendations"
+  }
+}

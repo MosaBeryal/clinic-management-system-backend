@@ -1,0 +1,20 @@
+{
+  "medication_item": {
+    "provider_info": "Anbieterinformationen",
+    "MDN": "Ärztliche Zulassungsnummer",
+    "doctor_name": "Name des Arztes",
+    "prescription_details": "Rezeptdetails",
+    "medication_name": "Medikamentenname",
+    "dosage_strength": "Dosierungsstärke",
+    "ROA": "Verabreichungsweg",
+    "frequency": "Frequenz",
+    "duration": "Dauer",
+    "purpose": "Zweck",
+    "patient_health_profile": "Gesundheitsprofil des Patienten",
+    "allergies": "Allergien",
+    "current_medications": "Aktuelle Medikamente",
+    "medical_conditions": "Medizinische Zustände",
+    "instructions": "Anweisungen",
+    "patient_instructions": "Anweisungen für den Patienten"
+  }
+}

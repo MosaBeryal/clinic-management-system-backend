@@ -1,0 +1,15 @@
+{
+  "patient id is required": "Patienten-ID ist erforderlich",
+  "patient name is required": "Patientenname ist erforderlich",
+  "gender is required": "Geschlecht ist erforderlich",
+  "birthday is required": "Geburtsdatum ist erforderlich",
+  "insurance policy number is required": "Versicherungsscheinnummer ist erforderlich",
+  "address is required": "Adresse ist erforderlich",
+  "phone number is required": "Telefonnummer ist erforderlich",
+  "email is required": "E-Mail ist erforderlich",
+  "email is invalid": "E-Mail ist ungültig",
+  "Medical License Number is required": "Ärztliche Zulassungsnummer ist erforderlich",
+  "doctor name is required": "Name des Arztes ist erforderlich",
+  "minimum 15 characters is required": "mindestens 15 Zeichen sind erforderlich",
+  "maximum 700 characters is required": "höchstens 700 Zeichen sind erforderlich"
+}

@@ -1,0 +1,21 @@
+{
+  "medical_imaging_item": {
+    "ref_physician_info": "Informationen zum überweisenden Arzt",
+    "MDN": "Ärztliche Zulassungsnummer",
+    "doctor_name": "Name des Arztes",
+    "interpreting_radiologist_info": "Informationen zum befundenden Radiologen",
+    "MDNRadiologist": "Ärztliche Zulassungsnummer",
+    "radiologist_name": "Name des Radiologen",
+    "exam_details": "Untersuchungsdetails",
+    "imaging_exam_date": "Datum der Bildgebungsuntersuchung",
+    "imaging_exam": "Art der Bildgebungsuntersuchung",
+    "clinical_indication": "Klinische Indikation",
+    "Pre_imaging_studies": "Vorherige Bildgebungsstudien",
+    "imaging_findings": "Bildgebungsbefunde",
+    "results": "Ergebnisse",
+    "abnormilities": "Anomalien",
+    "impressions_and_recommendations": "Eindrücke und Empfehlungen",
+    "impressions": "Eindrücke",
+    "recommendations": "Empfehlungen"
+  }
+}

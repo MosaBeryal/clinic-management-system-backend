@@ -1,0 +1,21 @@
+{
+  "medical_imaging_item": {
+    "ref_physician_info": "Informations sur le médecin référent",
+    "MDN": "Numéro de licence médicale",
+    "doctor_name": "Nom du médecin",
+    "interpreting_radiologist_info": "Informations sur le radiologue interprétant",
+    "MDNRadiologist": "Numéro de licence médicale",
+    "radiologist_name": "Nom du radiologue",
+    "exam_details": "Détails de l'examen",
+    "imaging_exam_date": "Date de l'examen d'imagerie",
+    "imaging_exam": "Type d'examen d'imagerie",
+    "clinical_indication": "Indication clinique",
+    "Pre_imaging_studies": "Études d'imagerie antérieures",
+    "imaging_findings": "Résultats d'imagerie",
+    "results": "Résultats",
+    "abnormilities": "Anomalies",
+    "impressions_and_recommendations": "Impressions et recommandations",
+    "impressions": "Impressions",
+    "recommendations": "Recommandations"
+  }
+}

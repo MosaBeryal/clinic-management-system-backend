@@ -1,0 +1,61 @@
+{
+  "consultation_item": {
+    "provider_info": "Informations sur le prestataire",
+    "MDN": "Numéro de licence médicale",
+    "doctor_name": "Nom du médecin",
+    "concerns": "Contexte et préoccupations actuelles",
+    "reason_for_consultation": "Raison de la consultation",
+    "medication_review": "Revue des médicaments",
+    "social_updates": "Historique/Actualités sociales",
+    "assess_and_examination": "Évaluation et examen",
+    "ROS": "Examen des systèmes (ROS)",
+    "physical_examination_findings": "Résultats de l'examen physique",
+    "treatment_plans": "Plan de traitement et instructions",
+    "assess_plan": "Évaluation et plan",
+    "patient_instructions": "Instructions pour le patient"
+  },
+  "consultation_form": {
+    "main_title": "Consultation",
+    "provider_info_title": "Informations sur le prestataire",
+    "concerns_title": "Antécédents et préoccupations actuelles",
+    "social_updates_title": "Histoire sociale/Mises à jour",
+    "assess_examination_title": "Évaluation et examen",
+    "treatment_plans_title": "Plan de traitement et instructions",
+    "MDN": {
+      "label": "Numéro de licence médicale",
+      "placeholder": "ex., MD1234"
+    },
+    "doctor_name": {
+      "label": "Nom du médecin",
+      "placeholder": "ex., David Smith"
+    },
+    "reason_for_consultation": {
+      "label": "Raison de la consultation",
+      "placeholder": "ex., Écrivez ici"
+    },
+    "medication_review": {
+      "label": "Revue des médicaments",
+      "placeholder": "ex., Écrivez ici"
+    },
+    "social_updates": {
+      "label": "Histoire sociale/Mises à jour",
+      "placeholder": "ex., Écrivez ici"
+    },
+    "ROS": {
+      "label": "Examen des systèmes (ROS)",
+      "placeholder": "ex., Écrivez ici"
+    },
+    "physical_examination_findings": {
+      "label": "Résultats de l'examen physique",
+      "placeholder": "ex., Écrivez ici"
+    },
+    "assess_plan": {
+      "label": "Évaluation et plan",
+      "placeholder": "ex., Écrivez ici"
+    },
+    "patient_instructions": {
+      "label": "Instructions pour le patient",
+      "placeholder": "ex., Écrivez ici"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "medical_bill_item": {
+    "staff_information": "Billing Staff Information",
+    "position": "Position",
+    "staff_name": "Staff Name",
+    "billing_details": "Billing Details",
+    "service": "Service",
+    "CPT_code": "Procedure Code (CPT code)",
+    "charges": "Charges",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "insurance_adjustment": "Insurance Adjustment",
+    "total_amount_due": "Total Amount Due",
+    "payment_information": "Payment Information",
+    "date_of_payment": "Date of payment",
+    "payment_method": "Payment Method"
+  }
+}

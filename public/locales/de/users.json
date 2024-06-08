@@ -1,0 +1,11 @@
+{
+  "table_header": {
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "role": "Rolle",
+    "email": "E-Mail",
+    "status": "Status",
+    "updatedAt": "Letzte Aktualisierung",
+    "actions": "Aktionen"
+  }
+}

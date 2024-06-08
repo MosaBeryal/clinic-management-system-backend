@@ -1,0 +1,20 @@
+{
+  "medication_item": {
+    "provider_info": "Provider Information",
+    "MDN": "Medical License Number",
+    "doctor_name": "Doctor Name",
+    "prescription_details": "Prescription Details",
+    "medication_name": "Medication Name",
+    "dosage_strength": "Dosage Strength",
+    "ROA": "Route of Administration",
+    "frequency": "Frequency",
+    "duration": "Duration",
+    "purpose": "Purpose",
+    "patient_health_profile": "Patient Health Profile",
+    "allergies": "Allergies",
+    "current_medications": "Current Medications",
+    "medical_conditions": "Medical Conditions",
+    "instructions": "Instructions",
+    "patient_instructions": "Patient Instructions"
+  }
+}
