@@ -11,5 +11,18 @@
   "Medical License Number is required": "Medical License Number is required",
   "doctor name is required": "doctor name is required",
   "minimum 15 characters is required": "minimum 15 characters is required",
-  "maximum 700 characters is required": "maximum 700 characters is required"
+  "maximum 700 characters is required": "maximum 700 characters is required",
+  "Staff Position must be greater than 3 characters": "Staff Position must be greater than 3 characters",
+  "Staff Name must be greater than 3 characters": "Staff Name must be greater than 3 characters",
+  "subtotal is required": "subtotal is required",
+  "Subtotal must be greater than zero": "Subtotal must be greater than zero",
+  "Must be a position number": "Must be a position number",
+  "insurance adjustment must be a positive number": "insurance adjustment must be a positive number",
+  "total amout due is required": "total amout due is required",
+  "Payment Date is required": "Payment Date is required",
+  "Payment Method is required": "Payment Method is required",
+  "service is required": "service is required",
+  "Procedure Code is required": "Procedure Code is required",
+  "charges is required": "charges is required",
+  "charges must be greater than zero": "charges must be greater than zero"
 }

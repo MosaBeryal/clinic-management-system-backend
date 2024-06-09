@@ -17,5 +17,62 @@
     "impressions_and_recommendations": "Impressions & Recommendations",
     "impressions": "Impressions",
     "recommendations": "Recommendations"
+  },
+  "medical_imaging_form": {
+    "main_title": "Medical Imaging Exam",
+    "ref_physician_title": "Referring Physician Information",
+    "interpreting_radiologist_title": "Interpreting Radiologist Information",
+    "exam_details_title": "Exam Details",
+    "imaging_findings_title": "Imaging Findings",
+    "impressions_and_recommendations_title": "Impressions & Recommendations",
+    "MDN": {
+      "label": "Medical License Number",
+      "placeholder": "eg., MD1234"
+    },
+    "doctor_name": {
+      "label": "Doctor Name",
+      "placeholder": "eg., Dr. David Smith"
+    },
+    "MDN_radiologist": {
+      "label": "Medical License Number",
+      "placeholder": "eg., MD1235"
+    },
+    "radiologist_name": {
+      "label": "Radiologist Name",
+      "placeholder": "eg., Dr. Jane Smith"
+    },
+    "imaging_exam_date": {
+      "label": "Date of Imaging Exam",
+      "placeholder": "eg., 23/05/2021"
+    },
+    "imaging_exam_type": {
+      "label": "Type of Imaging Exam",
+      "placeholder": "eg., Physical Examination"
+    },
+    "clinical_indication": {
+      "label": "Clinical Indication",
+      "placeholder": "eg., Write Here"
+    },
+    "Pre_imaging_studies": {
+      "label": "Previous Imaging Studies",
+      "placeholder": "eg., Write Here"
+    },
+    "results": {
+      "label": "Results",
+      "placeholder": "eg., Write Here"
+    },
+    "abnormalities": {
+      "label": "Abnormalities",
+      "placeholder": "eg., Write Here"
+    },
+    "impressions": {
+      "label": "Impressions",
+      "placeholder": "eg., Write Here"
+    },
+    "recommendations": {
+      "label": "Recommendations",
+      "placeholder": "eg., Write Here"
+    },
+    "submit_action": "Save Data"
   }
 }

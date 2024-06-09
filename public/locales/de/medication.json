@@ -16,5 +16,61 @@
     "medical_conditions": "Medizinische Zustände",
     "instructions": "Anweisungen",
     "patient_instructions": "Anweisungen für den Patienten"
+  },
+  "medication_form": {
+    "main_title": "Medikation",
+    "provider_info_title": "Informationen zum Anbieter",
+    "prescription_details_title": "Rezeptdetails",
+    "patient_health_profile_title": "Gesundheitsprofil des Patienten",
+    "instructions": "Anweisungen",
+    "MDN": {
+      "label": "Medizinische Lizenznummer",
+      "placeholder": "z.B., MD1234"
+    },
+    "doctor_name": {
+      "label": "Name des Arztes",
+      "placeholder": "z.B., David Smith"
+    },
+    "medication_name": {
+      "label": "Name des Medikaments",
+      "placeholder": "z.B., ESO"
+    },
+    "dosage_strength": {
+      "label": "Dosierung",
+      "placeholder": "z.B., 250mg"
+    },
+    "ROA": {
+      "label": "Verabreichungsweg",
+      "placeholder": "z.B., Verabreichungsweg auswählen"
+    },
+    "frequency": {
+      "label": "Häufigkeit",
+      "placeholder": "z.B., zweimal täglich"
+    },
+    "duration": {
+      "label": "Dauer",
+      "placeholder": "z.B., 4 Tage"
+    },
+    "purpose": {
+      "label": "Zweck",
+      "placeholder": "z.B., Temperatur"
+    },
+    "allergies": {
+      "label": "Allergien",
+      "placeholder": "z.B., hier schreiben"
+    },
+    "current_medications": {
+      "label": "Aktuelle Medikamente",
+      "placeholder": "z.B., hier schreiben"
+    },
+    "medical_conditions": {
+      "label": "Medizinische Bedingungen",
+      "placeholder": "z.B., hier schreiben"
+    },
+    "patient_instructions": {
+      "label": "Patientenanweisungen",
+      "placeholder": "z.B., hier schreiben"
+    },
+    "submit_action": "Daten speichern"
   }
 }

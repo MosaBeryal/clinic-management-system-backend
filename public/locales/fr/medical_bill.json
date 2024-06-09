@@ -14,5 +14,57 @@
     "payment_information": "Informations de paiement",
     "date_of_payment": "Date de paiement",
     "payment_method": "Mode de paiement"
+  },
+  "medical_bill_form": {
+    "main_title": "Facture Médicale",
+    "staff_information_title": "Informations sur le Personnel de Facturation",
+    "billing_details_title": "Détails de la Facturation",
+    "payment_information_title": "Informations de Paiement",
+    "position": {
+      "label": "Poste",
+      "placeholder": "ex., Coordinateur de Facturation"
+    },
+    "staff_name": {
+      "label": "Nom du Personnel",
+      "placeholder": "ex., Brin Williams"
+    },
+    "service": {
+      "label": "Service",
+      "placeholder": "ex., Consultation"
+    },
+    "CPT_code": {
+      "label": "Code CPT",
+      "placeholder": "ex., CONS342"
+    },
+    "charges": {
+      "label": "Frais",
+      "placeholder": "ex., $300.00"
+    },
+    "add_service_action": "Ajouter un Service",
+    "subtotal": {
+      "label": "Sous-total",
+      "placeholder": "ex., 300.00"
+    },
+    "discount": {
+      "label": "Remise",
+      "placeholder": "ex., $0.00"
+    },
+    "insurance_adjustment": {
+      "label": "Ajustement d'Assurance",
+      "placeholder": "ex., $0.00"
+    },
+    "total_amount_due": {
+      "label": "Montant Total Dû",
+      "placeholder": "ex., $300.00"
+    },
+    "date_of_payment": {
+      "label": "Date de Paiement",
+      "placeholder": "ex., 25/06/2023"
+    },
+    "payment_method": {
+      "label": "Méthode de Paiement",
+      "placeholder": "ex., Sélectionnez la Méthode de Paiement"
+    },
+    "submit_action": "Enregistrer les Données"
   }
 }

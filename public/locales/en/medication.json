@@ -16,5 +16,61 @@
     "medical_conditions": "Medical Conditions",
     "instructions": "Instructions",
     "patient_instructions": "Patient Instructions"
+  },
+  "medication_form": {
+    "main_title": "Medication",
+    "provider_info_title": "Provider Information",
+    "prescription_details_title": "Prescription Details",
+    "patient_health_profile_title": "Patient Health Profile",
+    "instructions_title": "Instructions",
+    "MDN": {
+      "label": "Medical License Number",
+      "placeholder": "eg., MD1234"
+    },
+    "doctor_name": {
+      "label": "Doctor Name",
+      "placeholder": "eg., David Smith"
+    },
+    "medication_name": {
+      "label": "Medication Name",
+      "placeholder": "eg., ESO"
+    },
+    "dosage_strength": {
+      "label": "Dosage Strength",
+      "placeholder": "eg., 250mg"
+    },
+    "ROA": {
+      "label": "Route of Administration",
+      "placeholder": "eg., Select ROA"
+    },
+    "frequency": {
+      "label": "Frequency",
+      "placeholder": "eg., twice daily"
+    },
+    "duration": {
+      "label": "Duration",
+      "placeholder": "eg., 4 days"
+    },
+    "purpose": {
+      "label": "Purpose",
+      "placeholder": "eg., temprature"
+    },
+    "allergies": {
+      "label": "Allergies",
+      "placeholder": "eg., write here"
+    },
+    "current_medications": {
+      "label": "Current Medications",
+      "placeholder": "eg., write here"
+    },
+    "medical_conditions": {
+      "label": "Medical Conditions",
+      "placeholder": "eg., write here"
+    },
+    "patient_instructions": {
+      "label": "Patient Instructions",
+      "placeholder": "eg., write here"
+    },
+    "submit_action": "Save Data"
   }
 }

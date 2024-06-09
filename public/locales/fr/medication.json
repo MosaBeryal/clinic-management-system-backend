@@ -16,5 +16,61 @@
     "medical_conditions": "Conditions médicales",
     "instructions": "Instructions",
     "patient_instructions": "Instructions pour le patient"
+  },
+  "medication_form": {
+    "main_title": "Médication",
+    "provider_info_title": "Informations sur le fournisseur",
+    "prescription_details_title": "Détails de l'ordonnance",
+    "patient_health_profile_title": "Profil de santé du patient",
+    "instructions": "Instructions",
+    "MDN": {
+      "label": "Numéro de licence médicale",
+      "placeholder": "ex., MD1234"
+    },
+    "doctor_name": {
+      "label": "Nom du médecin",
+      "placeholder": "ex., David Smith"
+    },
+    "medication_name": {
+      "label": "Nom du médicament",
+      "placeholder": "ex., ESO"
+    },
+    "dosage_strength": {
+      "label": "Dosage",
+      "placeholder": "ex., 250mg"
+    },
+    "ROA": {
+      "label": "Voie d'administration",
+      "placeholder": "ex., Sélectionner ROA"
+    },
+    "frequency": {
+      "label": "Fréquence",
+      "placeholder": "ex., deux fois par jour"
+    },
+    "duration": {
+      "label": "Durée",
+      "placeholder": "ex., 4 jours"
+    },
+    "purpose": {
+      "label": "But",
+      "placeholder": "ex., température"
+    },
+    "allergies": {
+      "label": "Allergies",
+      "placeholder": "ex., écrire ici"
+    },
+    "current_medications": {
+      "label": "Médicaments actuels",
+      "placeholder": "ex., écrire ici"
+    },
+    "medical_conditions": {
+      "label": "Conditions médicales",
+      "placeholder": "ex., écrire ici"
+    },
+    "patient_instructions": {
+      "label": "Instructions pour le patient",
+      "placeholder": "ex., écrire ici"
+    },
+    "submit_action": "Enregistrer les données"
   }
 }

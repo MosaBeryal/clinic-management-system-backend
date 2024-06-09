@@ -11,5 +11,18 @@
   "Medical License Number is required": "Numéro de licence médicale requis",
   "doctor name is required": "nom du médecin requis",
   "minimum 15 characters is required": "minimum 15 caractères requis",
-  "maximum 700 characters is required": "maximum 700 caractères requis"
+  "maximum 700 characters is required": "maximum 700 caractères requis",
+  "Staff Position must be greater than 3 characters": "Le poste du personnel doit comporter plus de 3 caractères",
+  "Staff Name must be greater than 3 characters": "Le nom du personnel doit comporter plus de 3 caractères",
+  "subtotal is required": "Le sous-total est requis",
+  "Subtotal must be greater than zero": "Le sous-total doit être supérieur à zéro",
+  "Must be a position number": "Doit être un numéro de position",
+  "insurance adjustment must be a positive number": "L'ajustement d'assurance doit être un nombre positif",
+  "total amout due is required": "Le montant total dû est requis",
+  "Payment Date is required": "La date de paiement est requise",
+  "Payment Method is required": "La méthode de paiement est requise",
+  "service is required": "Le service est requis",
+  "Procedure Code is required": "Le code de procédure est requis",
+  "charges is required": "Les frais sont requis",
+  "charges must be greater than zero": "Les frais doivent être supérieurs à zéro"
 }
