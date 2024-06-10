@@ -1,0 +1,76 @@
+{
+  "medical_bill_item": {
+    "staff_information": "Billing Staff Information",
+    "position": "Position",
+    "staff_name": "Staff Name",
+    "billing_details": "Billing Details",
+    "service": "Service",
+    "CPT_code": "Procedure Code (CPT code)",
+    "charges": "Charges",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "insurance_adjustment": "Insurance Adjustment",
+    "total_amount_due": "Total Amount Due",
+    "payment_information": "Payment Information",
+    "date_of_payment": "Date of payment",
+    "payment_method": "Payment Method"
+  },
+  "delete_medical_bill_alert": {
+    "title": "Confirm Deletion",
+    "description": "Are you sure you want to delete this medical bill history? This action cannot be undone. Deleting this medical bill history will remove all associated data from our records permanently.",
+    "cancel_action": "Cancel",
+    "delete_action": "Delete Medical Bill"
+  },
+  "medical_bill_form": {
+    "main_title": "Medical Bill",
+    "staff_information_title": "Billing Staff Information",
+    "billing_details_title": "Billing Details",
+    "payment_information_title": "Payment Information",
+    "position": {
+      "label": "Position",
+      "placeholder": "eg., Billing Coordinator"
+    },
+    "staff_name": {
+      "label": "Staff Name",
+      "placeholder": "eg., Brin Williams"
+    },
+    "service": {
+      "label": "Service",
+      "placeholder": "eg., Consultation"
+    },
+    "CPT_code": {
+      "label": "CPT Code",
+      "placeholder": "eg., CONS342"
+    },
+    "charges": {
+      "label": "Charges",
+      "placeholder": "eg., $300.00"
+    },
+    "add_service_action": "Add Service",
+    "subtotal": {
+      "label": "Subtotal",
+      "placeholder": "eg., 300.00"
+    },
+    "discount": {
+      "label": "Discount",
+      "placeholder": "eg., $0.00"
+    },
+    "insurance_adjustment": {
+      "label": "Insurance Adjustment",
+      "placeholder": "eg., $0.00"
+    },
+    "total_amount_due": {
+      "label": "Total Amount Due",
+      "placeholder": "eg., $300.00"
+    },
+    "date_of_payment": {
+      "label": "Date of Payment",
+      "placeholder": "eg., 25/06/2023"
+    },
+    "payment_method": {
+      "label": "Payment Method",
+      "placeholder": "eg., Select Paymnet Method"
+    },
+    "submit_action": "Save Data"
+  }
+}

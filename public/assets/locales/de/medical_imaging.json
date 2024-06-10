@@ -1,0 +1,84 @@
+{
+  "medical_imaging_item": {
+    "ref_physician_info": "Informationen zum überweisenden Arzt",
+    "MDN": "Ärztliche Zulassungsnummer",
+    "doctor_name": "Name des Arztes",
+    "interpreting_radiologist_info": "Informationen zum befundenden Radiologen",
+    "MDNRadiologist": "Ärztliche Zulassungsnummer",
+    "radiologist_name": "Name des Radiologen",
+    "exam_details": "Untersuchungsdetails",
+    "imaging_exam_date": "Datum der Bildgebungsuntersuchung",
+    "imaging_exam": "Art der Bildgebungsuntersuchung",
+    "clinical_indication": "Klinische Indikation",
+    "Pre_imaging_studies": "Vorherige Bildgebungsstudien",
+    "imaging_findings": "Bildgebungsbefunde",
+    "results": "Ergebnisse",
+    "abnormilities": "Anomalien",
+    "impressions_and_recommendations": "Eindrücke und Empfehlungen",
+    "impressions": "Eindrücke",
+    "recommendations": "Empfehlungen"
+  },
+  "delete_medical_imaging_alert": {
+    "title": "Löschung bestätigen",
+    "description": "Sind Sie sicher, dass Sie diese medizinische Bildgebungshistorie löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Das Löschen dieser medizinischen Bildgebungshistorie entfernt alle zugehörigen Daten dauerhaft aus unseren Aufzeichnungen.",
+    "cancel_action": "Abbrechen",
+    "delete_action": "Medizinische Bildgebung löschen"
+  },
+  "medical_imaging_form": {
+    "main_title": "Medizinische Bildgebung",
+    "ref_physician_title": "Informationen zum Überweisenden Arzt",
+    "interpreting_radiologist_title": "Informationen zum Interpretierenden Radiologen",
+    "exam_details_title": "Untersuchungsdetails",
+    "imaging_findings_title": "Bildgebende Befunde",
+    "impressions_and_recommendations_title": "Eindrücke & Empfehlungen",
+    "MDN": {
+      "label": "Ärztliche Zulassungsnummer",
+      "placeholder": "z.B., MD1234"
+    },
+    "doctor_name": {
+      "label": "Arztname",
+      "placeholder": "z.B., Dr. David Smith"
+    },
+    "MDN_radiologist": {
+      "label": "Ärztliche Zulassungsnummer",
+      "placeholder": "z.B., MD1235"
+    },
+    "radiologist_name": {
+      "label": "Name des Radiologen",
+      "placeholder": "z.B., Dr. Jane Smith"
+    },
+    "imaging_exam_date": {
+      "label": "Datum der Bildgebenden Untersuchung",
+      "placeholder": "z.B., 23/05/2021"
+    },
+    "imaging_exam_type": {
+      "label": "Art der Bildgebenden Untersuchung",
+      "placeholder": "z.B., Physikalische Untersuchung"
+    },
+    "clinical_indication": {
+      "label": "Klinische Indikation",
+      "placeholder": "z.B., Hier Schreiben"
+    },
+    "Pre_imaging_studies": {
+      "label": "Frühere Bildgebende Untersuchungen",
+      "placeholder": "z.B., Hier Schreiben"
+    },
+    "results": {
+      "label": "Ergebnisse",
+      "placeholder": "z.B., Hier Schreiben"
+    },
+    "abnormalities": {
+      "label": "Anomalien",
+      "placeholder": "z.B., Hier Schreiben"
+    },
+    "impressions": {
+      "label": "Eindrücke",
+      "placeholder": "z.B., Hier Schreiben"
+    },
+    "recommendations": {
+      "label": "Empfehlungen",
+      "placeholder": "z.B., Hier Schreiben"
+    },
+    "submit_action": "Daten Speichern"
+  }
+}

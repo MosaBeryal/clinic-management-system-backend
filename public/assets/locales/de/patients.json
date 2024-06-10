@@ -1,0 +1,94 @@
+{
+  "table_toolbar": {
+    "selected_patients": "Ausgewählt",
+    "total_patients": "Gesamtanzahl der Patienten",
+    "dropdown_action": {
+      "title": "Aktion wählen",
+      "option_one": "Option 1",
+      "option_two": "Option 2"
+    }
+  },
+  "table_header": {
+    "id": "ID",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "age": "Alter",
+    "gender": "Geschlecht",
+    "updatedAt": "Zuletzt aktualisiert",
+    "contact": "Kontakt",
+    "actions": "Aktionen"
+  },
+  "table_actions": {
+    "view": "Details anzeigen",
+    "edit": "Patient bearbeiten",
+    "delete": "Löschen"
+  },
+  "delete_alert": {
+    "title": "Löschung bestätigen",
+    "description": "Sind Sie sicher, dass Sie diesen Patienten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Durch das Löschen dieses Patienten werden alle zugehörigen Daten dauerhaft aus unseren Aufzeichnungen entfernt.",
+    "action": "Patient löschen"
+  },
+  "patient_form": {
+    "title": "Patient",
+    "patient_info_title": "Informationen zum Patienten",
+    "patient_id": {
+      "label": "Patienten-ID",
+      "placeholder": "z.B., P002"
+    },
+    "first_name": {
+      "label": "Patientenname",
+      "placeholder": "z.B., John Doe"
+    },
+    "gender": {
+      "label": "Geschlecht",
+      "placeholder": "Geschlecht auswählen",
+      "options": {
+        "Male": "Männlich",
+        "Female": "Weiblich",
+        "Other": "Andere"
+      }
+    },
+    "birthday": {
+      "label": "Geburtsdatum",
+      "placeholder": "z.B., 01/01/1990"
+    },
+    "IPN": {
+      "label": "Versicherungsnummer",
+      "placeholder": "z.B., MD123"
+    },
+    "address": {
+      "label": "Adresse",
+      "placeholder": "z.B., 123 Main St, Springfield, IL 62701"
+    },
+    "phone_number": {
+      "label": "Telefonnummer",
+      "placeholder": "z.B., 5556662229"
+    },
+    "email": {
+      "label": "E-Mail",
+      "placeholder": "z.B., example@example.com"
+    },
+
+    "submit_action": "Patient hinzufügen"
+  },
+  "patient_details": {
+    "id": "ID",
+    "gender": "Geschlecht",
+    "age": "Alter",
+    "birthday": "Geburtsdatum",
+    "insurance": "Versicherung",
+    "address": "Adresse",
+    "phone_number": "Telefonnummer",
+    "email": "Email"
+  },
+  "patient_links": {
+    "consultation_his": "Konsultationsverlauf",
+    "medication_his": "Medikationsverlauf",
+    "medical_imaging_his": "Medizinischer Bildgebungsverlauf",
+    "medical_bill": "Rechnungshistorie",
+    "add_consultation": "Konsultation hinzufügen",
+    "add_medication": "Medikation hinzufügen",
+    "add_medical_imaging": "Medizinische Bildgebung hinzufügen",
+    "add_medical_bill": "Rechnung hinzufügen"
+  }
+}
