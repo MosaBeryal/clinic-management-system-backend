@@ -1,8 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-const { calculateAge } = require('../utils/utils');
+"use strict";
+const { Model } = require("sequelize");
+const { calculateAge } = require("../utils/utils");
 module.exports = (sequelize, DataTypes) => {
   class Patient extends Model {
     /**
@@ -12,43 +10,49 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.Consultation, { foreignKey: 'patientId' });
-      this.hasMany(models.MedicalBill, { foreignKey: 'patientId' });
-      this.hasMany(models.Medication, { foreignKey: 'patientId' });
-      this.hasMany(models.MedicalImagingExam, { foreignKey: 'patientId' });
+      this.hasMany(models.Consultation, { foreignKey: "patientId" });
+      this.hasMany(models.MedicalBill, { foreignKey: "patientId" });
+      this.hasMany(models.Medication, { foreignKey: "patientId" });
+      this.hasMany(models.MedicalImagingExam, { foreignKey: "patientId" });
     }
   }
-  Patient.init({
-    patientId: {
-      type: DataTypes.STRING,
-      primaryKey: true,
-      allowNull: false,
-      unique: true
+  Patient.init(
+    {
+      patientId: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        allowNull: false,
+        unique: true,
+      },
+      patientName: DataTypes.STRING,
+      gender: {
+        type: DataTypes.ENUM("Male", "Female", "Other"),
+        allowNull: false,
+      },
+      firstName: DataTypes.STRING,
+      lastName: DataTypes.STRING,
+      age: DataTypes.INTEGER,
+      birthday: DataTypes.DATE,
+      issuancePolicyNumber: DataTypes.STRING,
+      address: DataTypes.TEXT,
+      phoneNumber: DataTypes.STRING,
+      email: DataTypes.STRING,
     },
-    patientName: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    age: DataTypes.INTEGER,
-    birthday: DataTypes.DATE,
-    issuancePolicyNumber: DataTypes.STRING,
-    address: DataTypes.TEXT,
-    phoneNumber: DataTypes.STRING,
-    email: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Patient',
-    hooks: {
-      beforeSave: (patient) => {
-        patient.age = calculateAge(patient.birthday);
-      }
-    },
-    // Include createdAt and updatedAt fields
-    timestamps: true,
-    // Specify the name of the createdAt column
-    createdAt: 'createdAt',
-    // Specify the name of the updatedAt column
-    updatedAt: 'updatedAt'
-  });
+    {
+      sequelize,
+      modelName: "Patient",
+      hooks: {
+        beforeSave: (patient) => {
+          patient.age = calculateAge(patient.birthday);
+        },
+      },
+      // Include createdAt and updatedAt fields
+      timestamps: true,
+      // Specify the name of the createdAt column
+      createdAt: "createdAt",
+      // Specify the name of the updatedAt column
+      updatedAt: "updatedAt",
+    }
+  );
   return Patient;
 };
