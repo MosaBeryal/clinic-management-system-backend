@@ -60,10 +60,26 @@
     },
     "submit_action": "Enregistrer"
   },
+  "user_statues": {
+    "active": "actif",
+    "blocked": "bloqué"
+  },
   "delete_user_alert": {
     "title": "Confirmer la Suppression",
     "description": "Êtes-vous sûr de vouloir supprimer cet utilisateur ? Cette action est irréversible. La suppression de cet utilisateur supprimera définitivement toutes les données associées de nos dossiers.",
     "cancel_action": "Annuler",
     "delete_action": "Supprimer l'Utilisateur"
+  },
+  "block_user_alert": {
+    "title": "Confirmer le blocage",
+    "description": "Êtes-vous sûr de vouloir bloquer cet utilisateur ? Cette action empêchera l'utilisateur d'accéder à son compte. Bloquer cet utilisateur restreindra définitivement tous les accès associés jusqu'à ce qu'il soit débloqué.",
+    "cancel_action": "Annuler",
+    "block_action": "Bloquer l'utilisateur"
+  },
+  "unblock_user_alert": {
+    "title": "Confirmer le déblocage",
+    "description": "Êtes-vous sûr de vouloir débloquer cet utilisateur ? Cette action rétablira l'accès de l'utilisateur à son compte.",
+    "cancel_action": "Annuler",
+    "block_action": "Débloquer l'utilisateur"
   }
 }
