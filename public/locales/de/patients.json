@@ -42,9 +42,11 @@
     "gender": {
       "label": "Geschlecht",
       "placeholder": "Geschlecht auswählen",
-      "option_male": "Männlich",
-      "option_female": "Weiblich",
-      "option_other": "Andere"
+      "options": {
+        "Male": "Männlich",
+        "Female": "Weiblich",
+        "Other": "Andere"
+      }
     },
     "birthday": {
       "label": "Geburtsdatum",

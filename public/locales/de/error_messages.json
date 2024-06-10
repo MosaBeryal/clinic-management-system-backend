@@ -24,5 +24,9 @@
   "service is required": "Der Service ist erforderlich",
   "Procedure Code is required": "Der Verfahrenscode ist erforderlich",
   "charges is required": "Die Gebühren sind erforderlich",
-  "charges must be greater than zero": "Die Gebühren müssen größer als null sein"
+  "charges must be greater than zero": "Die Gebühren müssen größer als null sein",
+  "First Name should must be 3 characters.": "Der Vorname muss mindestens 3 Zeichen lang sein.",
+  "Last Name should must be 3 characters.": "Der Nachname muss mindestens 3 Zeichen lang sein.",
+  "Password should be atleast 6 characters.": "Das Passwort muss mindestens 6 Zeichen lang sein.",
+  "Please Select role": "Bitte wählen Sie eine Rolle aus."
 }

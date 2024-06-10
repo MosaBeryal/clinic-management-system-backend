@@ -17,6 +17,12 @@
     "instructions": "Instructions",
     "patient_instructions": "Instructions pour le patient"
   },
+  "delete_medication_alert": {
+    "title": "Confirmer la suppression",
+    "description": "Êtes-vous sûr de vouloir supprimer cet historique de médication ? Cette action est irréversible. La suppression de cet historique de médication supprimera définitivement toutes les données associées de nos dossiers.",
+    "cancel_action": "Annuler",
+    "delete_action": "Supprimer la médication"
+  },
   "medication_form": {
     "main_title": "Médication",
     "provider_info_title": "Informations sur le fournisseur",

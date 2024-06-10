@@ -15,6 +15,12 @@
     "date_of_payment": "Zahlungsdatum",
     "payment_method": "Zahlungsmethode"
   },
+  "delete_medical_bill_alert": {
+    "title": "Löschung bestätigen",
+    "description": "Sind Sie sicher, dass Sie diese medizinische Rechnungsakte löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Das Löschen dieser medizinischen Rechnungsakte entfernt alle zugehörigen Daten dauerhaft aus unseren Aufzeichnungen.",
+    "cancel_action": "Abbrechen",
+    "delete_action": "Medizinische Rechnung löschen"
+  },
   "medical_bill_form": {
     "main_title": "Ärztliche Rechnung",
     "staff_information_title": "Informationen zum Abrechnungspersonal",

@@ -18,6 +18,12 @@
     "impressions": "Impressions",
     "recommendations": "Recommendations"
   },
+  "delete_medical_imaging_alert": {
+    "title": "Confirm Deletion",
+    "description": "Are you sure you want to delete this medical maging history? This action cannot be undone. Deleting this medical imaging history will remove all associated data from our records permanently.",
+    "cancel_action": "Cancel",
+    "delete_action": "Delete Medical Imaging"
+  },
   "medical_imaging_form": {
     "main_title": "Medical Imaging Exam",
     "ref_physician_title": "Referring Physician Information",

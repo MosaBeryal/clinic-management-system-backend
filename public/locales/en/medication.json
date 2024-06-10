@@ -17,6 +17,12 @@
     "instructions": "Instructions",
     "patient_instructions": "Patient Instructions"
   },
+  "delete_medication_alert": {
+    "title": "Confirm Deletion",
+    "description": "Are you sure you want to delete this medication history? This action cannot be undone. Deleting this medication history will remove all associated data from our records permanently.",
+    "cancel_action": "Cancel",
+    "delete_action": "Delete Medication"
+  },
   "medication_form": {
     "main_title": "Medication",
     "provider_info_title": "Provider Information",

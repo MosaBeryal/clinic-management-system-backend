@@ -15,6 +15,12 @@
     "date_of_payment": "Date of payment",
     "payment_method": "Payment Method"
   },
+  "delete_medical_bill_alert": {
+    "title": "Confirm Deletion",
+    "description": "Are you sure you want to delete this medical bill history? This action cannot be undone. Deleting this medical bill history will remove all associated data from our records permanently.",
+    "cancel_action": "Cancel",
+    "delete_action": "Delete Medical Bill"
+  },
   "medical_bill_form": {
     "main_title": "Medical Bill",
     "staff_information_title": "Billing Staff Information",

@@ -24,5 +24,9 @@
   "service is required": "service is required",
   "Procedure Code is required": "Procedure Code is required",
   "charges is required": "charges is required",
-  "charges must be greater than zero": "charges must be greater than zero"
+  "charges must be greater than zero": "charges must be greater than zero",
+  "First Name should must be 3 characters.": "First Name should must be 3 characters.",
+  "Last Name should must be 3 characters.": "Last Name should must be 3 characters.",
+  "Password should be atleast 6 characters.": "Password should be atleast 6 characters.",
+  "Please Select role": "Please Select role"
 }

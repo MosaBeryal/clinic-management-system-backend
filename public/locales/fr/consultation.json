@@ -14,6 +14,12 @@
     "assess_plan": "Évaluation et plan",
     "patient_instructions": "Instructions pour le patient"
   },
+  "delete_consultation_alert": {
+    "title": "Confirmer la suppression",
+    "description": "Êtes-vous sûr de vouloir supprimer cet historique de consultation ? Cette action est irréversible. La suppression de cet historique de consultation supprimera définitivement toutes les données associées de nos dossiers.",
+    "cancel_action": "Annuler",
+    "delete_action": "Supprimer la consultation"
+  },
   "consultation_form": {
     "main_title": "Consultation",
     "provider_info_title": "Informations sur le prestataire",

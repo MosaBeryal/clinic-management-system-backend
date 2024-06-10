@@ -18,6 +18,12 @@
     "impressions": "Eindrücke",
     "recommendations": "Empfehlungen"
   },
+  "delete_medical_imaging_alert": {
+    "title": "Löschung bestätigen",
+    "description": "Sind Sie sicher, dass Sie diese medizinische Bildgebungshistorie löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Das Löschen dieser medizinischen Bildgebungshistorie entfernt alle zugehörigen Daten dauerhaft aus unseren Aufzeichnungen.",
+    "cancel_action": "Abbrechen",
+    "delete_action": "Medizinische Bildgebung löschen"
+  },
   "medical_imaging_form": {
     "main_title": "Medizinische Bildgebung",
     "ref_physician_title": "Informationen zum Überweisenden Arzt",

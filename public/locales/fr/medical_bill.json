@@ -15,6 +15,12 @@
     "date_of_payment": "Date de paiement",
     "payment_method": "Mode de paiement"
   },
+  "delete_medical_bill_alert": {
+    "title": "Confirmer la suppression",
+    "description": "Êtes-vous sûr de vouloir supprimer cet historique de facturation médicale ? Cette action est irréversible. La suppression de cet historique de facturation médicale supprimera définitivement toutes les données associées de nos dossiers.",
+    "cancel_action": "Annuler",
+    "delete_action": "Supprimer la facture médicale"
+  },
   "medical_bill_form": {
     "main_title": "Facture Médicale",
     "staff_information_title": "Informations sur le Personnel de Facturation",

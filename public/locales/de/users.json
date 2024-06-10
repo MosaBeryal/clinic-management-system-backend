@@ -1,4 +1,8 @@
 {
+  "user_header": {
+    "main_title": "Benutzer verwalten",
+    "add_user_action": "Benutzer hinzufügen"
+  },
   "table_toolbar": {
     "selected_users": "Ausgewählte",
     "total_users": "Gesamtbenutzer",
@@ -23,5 +27,43 @@
     "block_user": "Benutzer blockieren",
     "unblock_user": "Benutzer freigeben",
     "delete_user": "Benutzer löschen"
+  },
+  "user_roles": {
+    "admin": "Administrator",
+    "doctor": "Arzt",
+    "replacing doctor": "Vertretungsarzt",
+    "assistant": "Assistent",
+    "secretary": "Sekretär"
+  },
+  "user_form": {
+    "title": "Benutzer",
+    "description": "Änderungen Vornehmen",
+    "first_name": {
+      "label": "Vorname",
+      "placeholder": "z.B. John"
+    },
+    "last_name": {
+      "label": "Nachname",
+      "placeholder": "z.B. Doe"
+    },
+    "email": {
+      "label": "E-Mail",
+      "placeholder": "z.B. johndoe@gmail.com"
+    },
+    "password": {
+      "label": "Passwort",
+      "placeholder": "z.B. admin@1234"
+    },
+    "role": {
+      "label": "Rolle",
+      "placeholder": "z.B. Rolle Wählen"
+    },
+    "submit_action": "Speichern"
+  },
+  "delete_user_alert": {
+    "title": "Löschung Bestätigen",
+    "description": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Durch das Löschen dieses Benutzers werden alle zugehörigen Daten dauerhaft aus unseren Aufzeichnungen entfernt.",
+    "cancel_action": "Abbrechen",
+    "delete_action": "Benutzer Löschen"
   }
 }

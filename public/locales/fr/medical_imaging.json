@@ -18,6 +18,12 @@
     "impressions": "Impressions",
     "recommendations": "Recommandations"
   },
+  "delete_medical_imaging_alert": {
+    "title": "Confirmer la suppression",
+    "description": "Êtes-vous sûr de vouloir supprimer cet historique d'imagerie médicale ? Cette action est irréversible. La suppression de cet historique d'imagerie médicale supprimera définitivement toutes les données associées de nos dossiers.",
+    "cancel_action": "Annuler",
+    "delete_action": "Supprimer l'imagerie médicale"
+  },
   "medical_imaging_form": {
     "main_title": "Examen d'Imagerie Médicale",
     "ref_physician_title": "Informations du Médecin Référent",

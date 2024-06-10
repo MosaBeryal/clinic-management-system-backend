@@ -14,6 +14,12 @@
     "assess_plan": "Bewertung und Plan",
     "patient_instructions": "Patientenanweisungen"
   },
+  "delete_consultation_alert": {
+    "title": "Löschung bestätigen",
+    "description": "Sind Sie sicher, dass Sie diese Konsultationshistorie löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Das Löschen dieser Konsultationshistorie entfernt alle zugehörigen Daten dauerhaft aus unseren Aufzeichnungen.",
+    "cancel_action": "Abbrechen",
+    "delete_action": "Konsultation löschen"
+  },
   "consultation_form": {
     "main_title": "Konsultation",
     "provider_info_title": "Informationen zum Anbieter",
