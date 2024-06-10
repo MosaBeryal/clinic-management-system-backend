@@ -1,0 +1,27 @@
+{
+  "table_toolbar": {
+    "selected_users": "Selected",
+    "total_users": "Total Users",
+    "dropdown_action": {
+      "title": "Choose Action",
+      "option_one": "Options 1",
+      "option_two": "Options 2"
+    }
+  },
+  "table_header": {
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "role": "Role",
+    "email": "Email",
+    "status": "Status",
+    "updatedAt": "Last Updated",
+    "actions": "Actions"
+  },
+  "table_actions": {
+    "title": "Actions",
+    "edit_user": "Edit User",
+    "block_user": "Block User",
+    "unblock_user": "Unblock User",
+    "delete_user": "Delete User"
+  }
+}

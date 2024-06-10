@@ -1,0 +1,27 @@
+{
+  "table_toolbar": {
+    "selected_users": "Ausgewählte",
+    "total_users": "Gesamtbenutzer",
+    "dropdown_action": {
+      "title": "Aktion wählen",
+      "option_one": "Optionen 1",
+      "option_two": "Optionen 2"
+    }
+  },
+  "table_header": {
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "role": "Rolle",
+    "email": "E-Mail",
+    "status": "Status",
+    "updatedAt": "Zuletzt aktualisiert",
+    "actions": "Aktionen"
+  },
+  "table_actions": {
+    "title": "Aktionen",
+    "edit_user": "Benutzer bearbeiten",
+    "block_user": "Benutzer blockieren",
+    "unblock_user": "Benutzer freigeben",
+    "delete_user": "Benutzer löschen"
+  }
+}

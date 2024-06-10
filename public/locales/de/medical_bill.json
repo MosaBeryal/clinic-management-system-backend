@@ -1,0 +1,70 @@
+{
+  "medical_bill_item": {
+    "staff_information": "Informationen zum Abrechnungspersonal",
+    "position": "Position",
+    "staff_name": "Name des Personals",
+    "billing_details": "Abrechnungsdetails",
+    "service": "Dienstleistung",
+    "CPT_code": "Prozedurcode (CPT-Code)",
+    "charges": "Gebühren",
+    "subtotal": "Zwischensumme",
+    "discount": "Rabatt",
+    "insurance_adjustment": "Versicherungsanpassung",
+    "total_amount_due": "Gesamtbetrag",
+    "payment_information": "Zahlungsinformationen",
+    "date_of_payment": "Zahlungsdatum",
+    "payment_method": "Zahlungsmethode"
+  },
+  "medical_bill_form": {
+    "main_title": "Ärztliche Rechnung",
+    "staff_information_title": "Informationen zum Abrechnungspersonal",
+    "billing_details_title": "Abrechnungsdetails",
+    "payment_information_title": "Zahlungsinformationen",
+    "position": {
+      "label": "Position",
+      "placeholder": "z.B., Abrechnungskoordinator"
+    },
+    "staff_name": {
+      "label": "Name des Personals",
+      "placeholder": "z.B., Brin Williams"
+    },
+    "service": {
+      "label": "Dienstleistung",
+      "placeholder": "z.B., Beratung"
+    },
+    "CPT_code": {
+      "label": "CPT-Code",
+      "placeholder": "z.B., CONS342"
+    },
+    "charges": {
+      "label": "Gebühren",
+      "placeholder": "z.B., $300.00"
+    },
+    "add_service_action": "Dienstleistung Hinzufügen",
+    "subtotal": {
+      "label": "Zwischensumme",
+      "placeholder": "z.B., 300.00"
+    },
+    "discount": {
+      "label": "Rabatt",
+      "placeholder": "z.B., $0.00"
+    },
+    "insurance_adjustment": {
+      "label": "Versicherungsanpassung",
+      "placeholder": "z.B., $0.00"
+    },
+    "total_amount_due": {
+      "label": "Gesamtbetrag Fällig",
+      "placeholder": "z.B., $300.00"
+    },
+    "date_of_payment": {
+      "label": "Zahlungsdatum",
+      "placeholder": "z.B., 25/06/2023"
+    },
+    "payment_method": {
+      "label": "Zahlungsmethode",
+      "placeholder": "z.B., Zahlungsmethode Wählen"
+    },
+    "submit_action": "Daten Speichern"
+  }
+}
