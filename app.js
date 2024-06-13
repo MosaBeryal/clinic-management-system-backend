@@ -1,14 +1,14 @@
+require('dotenv').config()
 const express = require('express');
 const { sequelize } = require('./models');
 const path = require("path")
 var cors = require('cors')
-require('dotenv').config()
 
 console.log(process.env.NODE_ENV)
 
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 const authRoutes = require("./routes/authRoutes")
 const patientRoutes = require("./routes/patientRoutes")

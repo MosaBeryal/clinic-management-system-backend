@@ -157,9 +157,6 @@ exports.twoFactorAuth = async (req, res) => {
   }
 
   const secret = speakeasy.generateSecret({ length: 20 });
-  user.twoFactorSecret = secret.base32;
-  user.twoFactorEnabled = true;
-  await user.save();
 
   const otpauthUrl = speakeasy.otpauthURL({
     secret: secret.ascii,
@@ -171,8 +168,40 @@ exports.twoFactorAuth = async (req, res) => {
     if (err) {
       return res.status(500).json({ message: "Error generating QR code" });
     }
+    user.twoFactorSecret = secret.base32;
+    user.save();
     res.json({ qrCodeUrl: dataUrl, secret: secret.base32 });
   });
+};
+
+exports.verify2fa = async (req, res) => {
+  const { userId:id, token } = req.body;
+  try {
+    const user = await User.findByPk(id);
+
+    if (!user || !user.twoFactorSecret) {
+      return res.status(400).json({ message: "Invalid request" });
+    }
+
+    const verified = speakeasy.totp.verify({
+      secret: user.twoFactorSecret,
+      encoding: "base32",
+      token,
+      window: 1,
+    });
+
+    if (!verified) {
+      return res.status(401).json({ message: "Invalid 2FA token" });
+    }
+
+    user.twoFactorEnabled = true;
+    await user.save();
+
+    res.json({ message: "2FA enabled successfully" });
+  } catch (error) {
+    console.error("Error during 2FA verification:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 exports.updateUser = async (req, res) => {
