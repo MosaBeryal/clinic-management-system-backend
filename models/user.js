@@ -22,6 +22,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: "active",
       },
+      twoFactorEnabled: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
+      twoFactorSecret: DataTypes.STRING,
       isBlocked: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,

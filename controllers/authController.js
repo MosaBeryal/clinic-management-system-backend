@@ -2,11 +2,13 @@ const jwt = require("jsonwebtoken");
 const User = require("../models").User;
 const { Op } = require("sequelize");
 const bcrypt = require("bcryptjs");
+const speakeasy = require("speakeasy");
+const qrcode = require("qrcode");
 const user = require("../models/user");
 
 exports.signIn = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, token } = req.body;
 
     // Check if user exists
     const user = await User.findOne({
@@ -35,6 +37,26 @@ exports.signIn = async (req, res) => {
     const payload = {
       user,
     };
+
+    if (user.twoFactorEnabled) {
+      if (!token) {
+        return res.status(400).json({
+          message: "Please provide 2FA token",
+          twoFactorEnabled: true,
+        });
+      }
+
+      const verified = speakeasy.totp.verify({
+        secret: user.twoFactorSecret,
+        encoding: "base32",
+        token,
+        window: 1,
+      });
+
+      if (!verified) {
+        return res.status(401).json({ message: "Invalid 2FA token" });
+      }
+    }
 
     const userWithoutPassword = user.get({ plain: true });
 
@@ -123,6 +145,34 @@ exports.getAllUser = async (req, res) => {
     console.error(error);
     return res.status(500).json({ message: "Internal server error" });
   }
+};
+
+exports.twoFactorAuth = async (req, res) => {
+  const id = req.body.userId;
+
+  const user = await User.findByPk(id);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  const secret = speakeasy.generateSecret({ length: 20 });
+  user.twoFactorSecret = secret.base32;
+  user.twoFactorEnabled = true;
+  await user.save();
+
+  const otpauthUrl = speakeasy.otpauthURL({
+    secret: secret.ascii,
+    label: `MyApp (${user.email})`,
+    issuer: "MyApp",
+  });
+
+  qrcode.toDataURL(otpauthUrl, (err, dataUrl) => {
+    if (err) {
+      return res.status(500).json({ message: "Error generating QR code" });
+    }
+    res.json({ qrCodeUrl: dataUrl, secret: secret.base32 });
+  });
 };
 
 exports.updateUser = async (req, res) => {
