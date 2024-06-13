@@ -4,7 +4,6 @@ const { Op } = require("sequelize");
 const bcrypt = require("bcryptjs");
 const speakeasy = require("speakeasy");
 const qrcode = require("qrcode");
-const user = require("../models/user");
 
 exports.signIn = async (req, res) => {
   try {
