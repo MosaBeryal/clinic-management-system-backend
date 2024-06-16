@@ -39,7 +39,7 @@ exports.signIn = async (req, res) => {
 
     if (user.twoFactorEnabled) {
       if (!token) {
-        return res.status(400).json({
+        return res.status(200).json({
           message: "Please provide 2FA token",
           twoFactorEnabled: true,
         });
