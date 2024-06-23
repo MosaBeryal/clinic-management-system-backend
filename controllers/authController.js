@@ -63,7 +63,7 @@ exports.signIn = async (req, res) => {
 
     jwt.sign(
       payload,
-      process.env.JWT_SECRET || "defaultSecret",
+      process.env.JWT_SECRET_KEY || "defaultSecret",
       { expiresIn: "1h" },
       (err, token) => {
         if (err) throw err;
@@ -174,7 +174,7 @@ exports.twoFactorAuth = async (req, res) => {
 };
 
 exports.verify2fa = async (req, res) => {
-  const { userId:id, token } = req.body;
+  const { userId: id, token } = req.body;
   try {
     const user = await User.findByPk(id);
 
@@ -265,6 +265,17 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   try {
+    
+    const { user } = req.user;
+
+    if (user.role !== "admin") {
+      return res.status(403).json({
+        status: 0,
+        message:
+          "Access denied! This operation can only be performed by an admin.",
+      });
+    }
+
     const { userId } = req.params;
 
     const deletedRowCount = await User.destroy({
