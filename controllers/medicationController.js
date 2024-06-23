@@ -200,6 +200,16 @@ exports.updateMedication = async (req, res) => {
 // Delete a medication
 exports.deleteMedication = async (req, res) => {
   const { id } = req.params;
+  
+  const { user } = req.user;
+
+  if (user.role !== "admin") {
+    return res.status(403).json({
+      status: 0,
+      message:
+        "Access denied! This operation can only be performed by an admin.",
+    });
+  }
   try {
     const medication = await Medication.findByPk(id);
 

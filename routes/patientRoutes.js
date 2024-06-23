@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const patientController = require("../controllers/patientController");
+const authenticate = require("../middleware/auth");
 
 //get patients
 router.get("/", patientController.getAllPatients);
@@ -12,6 +13,6 @@ router.get("/:patientId", patientController.getPatient);
 router.post("/add", patientController.addPatient);
 
 // Route for deleting a patient by patientId
-router.delete("/:patientId", patientController.deletePatient);
+router.delete("/:patientId", authenticate, patientController.deletePatient);
 
 module.exports = router;

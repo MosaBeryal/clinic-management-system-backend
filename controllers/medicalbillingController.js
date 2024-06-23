@@ -205,6 +205,16 @@ exports.updateBill = async (req, res) => {
 exports.deleteBill = async (req, res) => {
     try {
         const { id } = req.params;
+        
+        const { user } = req.user;
+
+        if (user.role !== "admin") {
+          return res.status(403).json({
+            status: 0,
+            message:
+              "Access denied! This operation can only be performed by an admin.",
+          });
+        }
 
         if (!id) {
             return res

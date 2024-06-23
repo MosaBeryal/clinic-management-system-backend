@@ -112,6 +112,17 @@ exports.deletePatient = async (req, res) => {
     try {
         const { patientId } = req.params;
 
+        const { user } = req.user;
+
+        if (user.role !== "admin") {
+          return res.status(403).json({
+            status: 0,
+            message:
+              "Access denied! This operation can only be performed by an admin.",
+          });
+        }
+        
+
         if (!patientId) {
             return res.status(400).json({ message: "Patient ID is required" });
         }

@@ -131,6 +131,16 @@ exports.deleteImagingExam = async (req, res) => {
     try {
         const { id } = req.params;
 
+        const { user } = req.user;
+
+        if (user.role !== "admin") {
+          return res.status(403).json({
+            status: 0,
+            message:
+              "Access denied! This operation can only be performed by an admin.",
+          });
+        }
+
         await MedicalImagingExam.destroy({ where: { id } });
 
         res.status(200).json({ message: 'Imaging exam deleted successfully' });

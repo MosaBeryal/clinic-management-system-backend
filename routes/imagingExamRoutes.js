@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const imagingExamController = require('../controllers/imagingExamController');
+const authenticate = require("../middleware/auth")
 
 router.get('/patient/:patientId', imagingExamController.getImagingExams);
 
@@ -11,6 +12,6 @@ router.post('/:patientId', imagingExamController.addImagingExam);
 
 router.patch('/:id', imagingExamController.updateImagingExam);
 
-router.delete('/:id', imagingExamController.deleteImagingExam);
+router.delete('/:id',authenticate, imagingExamController.deleteImagingExam);
 
 module.exports = router;
