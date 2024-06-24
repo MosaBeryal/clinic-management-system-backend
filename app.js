@@ -16,6 +16,7 @@ const consultationRoutes = require("./routes/consultationRoutes")
 const medicationRoutes = require("./routes/medicationRoutes")
 const imagingExamRoutes = require("./routes/imagingExamRoutes");
 const medicalBillingRoutes = require("./routes/medicalBillingRoutes");
+const medicineRoutes = require("./routes/medicineRoutes")
 const authenticateToken = require('./middleware/auth');
 
 app.use(express.urlencoded({ extended: true }));
@@ -34,6 +35,7 @@ app.use('/api/consultation/', consultationRoutes);
 app.use('/api/medication/', medicationRoutes);
 app.use('/api/imaging-exam/', imagingExamRoutes)
 app.use('/api/medical-billing/', medicalBillingRoutes)
+app.use('/api/medicine/', medicineRoutes)
 
 // Serve index.html file when someone accesses the main route
 app.get('/', (req, res) => {
