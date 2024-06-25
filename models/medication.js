@@ -33,6 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     medicationDate: DataTypes.DATE,
     medicalConditions: DataTypes.TEXT,
     patientInstructions: DataTypes.TEXT,
+    createdBy: DataTypes.TEXT,
+    updatedBy: DataTypes.TEXT,
     patientId: {
       type: DataTypes.STRING,
       allowNull: false

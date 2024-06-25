@@ -2,7 +2,7 @@ const Medication = require("../models").Medication;
 const Patient = require("../models").Patient;
 const { validationResult } = require("express-validator");
 const { isValidDate } = require("../utils/utils");
-const { Op } = require("sequelize")
+const { Op } = require("sequelize");
 
 // Get medications by patient ID or date
 exports.getMedications = async (req, res) => {
@@ -13,11 +13,9 @@ exports.getMedications = async (req, res) => {
   const { date } = req.query;
   try {
     if (date && !isValidDate(date)) {
-      return res
-        .status(400)
-        .json({
-          error: "Invalid date format. Date should be in YYYY-MM-DD format.",
-        });
+      return res.status(400).json({
+        error: "Invalid date format. Date should be in YYYY-MM-DD format.",
+      });
     }
 
     let medications;
@@ -25,9 +23,10 @@ exports.getMedications = async (req, res) => {
     if (patientId && date) {
       medications = await Medication.findAll({
         where: {
-          patientId, createdAt: {
-            [Op.between]: [new Date(date), new Date(date + " 23:59:59")] 
-          }
+          patientId,
+          createdAt: {
+            [Op.between]: [new Date(date), new Date(date + " 23:59:59")],
+          },
         },
       });
     } else if (patientId) {
@@ -44,17 +43,16 @@ exports.getMedications = async (req, res) => {
 // Get medications medication Id
 exports.getMedicationsById = async (req, res) => {
   try {
-
     const { id } = req.params;
 
     if (!id) {
-      return res.status(400).json({ error: "Medication ID is required." })
+      return res.status(400).json({ error: "Medication ID is required." });
     }
 
     const medications = await Medication.findByPk(id);
 
     if (!medications) {
-      return res.status(404).json({ error: "Medication not found." })
+      return res.status(404).json({ error: "Medication not found." });
     }
 
     res.json({ medications });
@@ -72,17 +70,13 @@ exports.getMedications = async (req, res) => {
 
   const { date } = req.query;
   try {
-
     if (date && !isValidDate(date)) {
-      return res
-        .status(400)
-        .json({
-          error: "Invalid date format. Date should be in YYYY-MM-DD format.",
-        });
+      return res.status(400).json({
+        error: "Invalid date format. Date should be in YYYY-MM-DD format.",
+      });
     }
 
     let medications;
-
 
     if (patientId && date) {
       // Assuming `date` is a specific date you want to match
@@ -90,17 +84,15 @@ exports.getMedications = async (req, res) => {
         where: {
           patientId,
           createdAt: {
-            [Op.between]: [new Date(date), new Date(date + " 23:59:59")] // Assuming you want to include all entries on the specified date
-          }
-        }
+            [Op.between]: [new Date(date), new Date(date + " 23:59:59")], // Assuming you want to include all entries on the specified date
+          },
+        },
       });
     } else if (patientId) {
       medications = await Medication.findAll({ where: { patientId } });
     }
 
-
     res.json({ medications });
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
@@ -111,6 +103,7 @@ exports.getMedications = async (req, res) => {
 exports.addMedication = async (req, res) => {
   const { patientId } = req.params;
 
+  const { user } = req.user;
 
   if (!patientId) {
     return res.status(400).json({ error: "Patient ID is required." });
@@ -118,13 +111,15 @@ exports.addMedication = async (req, res) => {
 
   const patient = Patient.findOne({
     where: {
-      patientId
-    }
-  })
+      patientId,
+    },
+  });
 
   if (!patient) {
     return res.status(404).json({ error: "Patient not found." });
   }
+
+  const createdBy = user.firstName +" " + user.lastName;
 
   const {
     medicalLicenseNumber,
@@ -158,17 +153,16 @@ exports.addMedication = async (req, res) => {
       medicalConditions,
       patientInstructions,
       patientId,
+      createdBy,
     });
 
-    console.log(newMedication)
+    console.log(newMedication);
 
-    res
-      .status(201)
-      .json({
-        success: true,
-        data: newMedication,
-        message: "Medication added successfully",
-      });
+    res.status(201).json({
+      success: true,
+      data: newMedication,
+      message: "Medication added successfully",
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
@@ -178,7 +172,14 @@ exports.addMedication = async (req, res) => {
 exports.updateMedication = async (req, res) => {
   try {
     const medicationId = req.params.id;
+
+    const {user} = req.user
+
     const updateFields = req.body;
+
+    updateFields.updatedBy= user.firstName + " " + user.lastName
+
+    
 
     // Update the medication with the provided fields
     const [updatedRows] = await Medication.update(updateFields, {
@@ -200,7 +201,7 @@ exports.updateMedication = async (req, res) => {
 // Delete a medication
 exports.deleteMedication = async (req, res) => {
   const { id } = req.params;
-  
+
   const { user } = req.user;
 
   if (user.role !== "admin") {

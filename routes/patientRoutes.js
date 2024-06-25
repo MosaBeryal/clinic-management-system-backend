@@ -4,13 +4,13 @@ const patientController = require("../controllers/patientController");
 const authenticate = require("../middleware/auth");
 
 //get patients
-router.get("/", patientController.getAllPatients);
+router.get("/", authenticate, patientController.getAllPatients);
 
 //get patients by id
-router.get("/:patientId", patientController.getPatient);
+router.get("/:patientId", authenticate, patientController.getPatient);
 
 // Route for adding a new patient
-router.post("/add", patientController.addPatient);
+router.post("/add", authenticate, patientController.addPatient);
 
 // Route for deleting a patient by patientId
 router.delete("/:patientId", authenticate, patientController.deletePatient);

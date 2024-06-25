@@ -74,6 +74,8 @@ exports.addConsultation = async (req, res) => {
   try {
     const { patientId } = req.params;
 
+    const { user } = req.user;
+
     const {
       doctorLicenseNumber,
       doctorName,
@@ -87,7 +89,7 @@ exports.addConsultation = async (req, res) => {
       consultationDate,
     } = req.body;
 
-    console.log(physicalExaminationFindings);
+    const createdBy = user.firstName + " " + user.lastName;
 
     if (!patientId) {
       return res.status(400).json({ message: "Patient ID is required." });
@@ -115,6 +117,7 @@ exports.addConsultation = async (req, res) => {
       assessmentAndPlan,
       patientInstructions,
       consultationDate,
+      createdBy,
     });
 
     res.status(201).json({
@@ -132,7 +135,17 @@ exports.updateConsultation = async (req, res) => {
   try {
     const consultationId = req.params.id;
 
+    const consultation = await Consultation.findByPk(consultationId);
+    
+    if (!consultation) {
+      return res.status(400).json({ message: "Consultation not found" });
+    }
+
+    const { user } = req.user;
+
     const updateFields = req.body;
+
+    updateFields.updatedBy = user.firstName + " " + user.lastName;
 
     // Update the consultation with the provided fields
     await Consultation.update(updateFields, { where: { id: consultationId } });

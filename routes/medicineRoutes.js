@@ -1,11 +1,11 @@
-const express = require("express")
+const express = require("express");
 
-const router = express.Router()
+const router = express.Router();
 
-const medicineController = require("../controllers/medicineController")
+const medicineController = require("../controllers/medicineController");
 
-const authenticate = require("../middleware/auth")
+const authenticate = require("../middleware/auth");
 
-router.get("/",authenticate, medicineController.getAllMedicine)
+router.get("/", authenticate, medicineController.getAllMedicine);
 
-module.exports= router
+module.exports = router;

@@ -32,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
     abnormalities: DataTypes.TEXT,
     impressions: DataTypes.TEXT,
     recommendations: DataTypes.TEXT,
+    createdBy: DataTypes.TEXT,
+    updatedBy: DataTypes.TEXT,
     patientId: {
       type: DataTypes.STRING,
       allowNull: false

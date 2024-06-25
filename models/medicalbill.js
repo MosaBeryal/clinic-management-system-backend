@@ -40,7 +40,9 @@ module.exports = (sequelize, DataTypes) => {
     billingDate: DataTypes.DATE,
     totalAmountDue: DataTypes.DECIMAL,
     paymentDate: DataTypes.DATE,
-    paymentMethod: DataTypes.STRING
+    paymentMethod: DataTypes.STRING,
+    createdBy: DataTypes.TEXT,
+    updatedBy: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'MedicalBill',
