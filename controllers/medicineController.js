@@ -11,8 +11,8 @@ exports.getAllMedicine = async (req, res) => {
     if (search) {
       whereCondition = {
         medicineName: {
-          [Op.like]: `%${search}%`
-        }
+          [Op.like]: `%${search}%`,
+        },
       };
     }
 
@@ -20,16 +20,10 @@ exports.getAllMedicine = async (req, res) => {
     const medicines = await Medicine.findAll({
       where: whereCondition,
       // Add a case-insensitive collation option for MySQL
-      collate: 'utf8_general_ci' // Replace with appropriate collation for your database
+      collate: "utf8_general_ci", // Replace with appropriate collation for your database
     });
 
-    console.log(medicines);
-
-    if (medicines.length > 0) {
-      res.status(200).json(medicines);
-    } else {
-      res.status(404).json({ message: "No medicines found" });
-    }
+    res.status(200).json(medicines);
   } catch (err) {
     console.error("Error fetching medicines:", err);
     res.status(500).json({ message: "Internal Server Error" });
