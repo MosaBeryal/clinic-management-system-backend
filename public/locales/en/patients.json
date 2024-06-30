@@ -16,6 +16,8 @@
     "gender": "Gender",
     "updatedAt": "Last Updated",
     "contact": "Contact",
+    "createdBy": "Created By",
+    "updatedBy": "Updated By",
     "actions": "Actions"
   },
   "table_actions": {

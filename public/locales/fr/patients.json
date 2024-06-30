@@ -16,6 +16,8 @@
     "gender": "Sexe",
     "updatedAt": "Dernière mise à jour",
     "contact": "Contact",
+    "createdBy": "Créé par",
+    "updatedBy": "Mis à jour par",
     "actions": "Actions"
   },
   "table_actions": {
@@ -29,7 +31,7 @@
     "action": "Supprimer le patient"
   },
   "patient_form": {
-    "title": "Patient",
+    "title": "Patiente",
     "patient_info_title": "Informations sur les patients",
     "patient_id": {
       "label": "ID du patient",

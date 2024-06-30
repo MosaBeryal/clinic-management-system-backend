@@ -15,7 +15,12 @@
     "current_medications": "Aktuelle Medikamente",
     "medical_conditions": "Medizinische Zustände",
     "instructions": "Anweisungen",
-    "patient_instructions": "Anweisungen für den Patienten"
+    "patient_instructions": "Anweisungen für den Patienten",
+    "activity_log": {
+      "title": "Aktivitätsprotokoll",
+      "createdBy": "Erstellt von",
+      "updatedBy": "Aktualisiert von"
+    }
   },
   "delete_medication_alert": {
     "title": "Löschung bestätigen",

@@ -13,7 +13,12 @@
     "total_amount_due": "Total Amount Due",
     "payment_information": "Payment Information",
     "date_of_payment": "Date of payment",
-    "payment_method": "Payment Method"
+    "payment_method": "Payment Method",
+    "activity_log": {
+      "title": "Activity Log",
+      "createdBy": "Created By",
+      "updatedBy": "Updated By"
+    }
   },
   "delete_medical_bill_alert": {
     "title": "Confirm Deletion",

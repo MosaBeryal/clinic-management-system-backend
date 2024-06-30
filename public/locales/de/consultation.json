@@ -12,7 +12,12 @@
     "physical_examination_findings": "Ergebnisse der körperlichen Untersuchung",
     "treatment_plans": "Behandlungsplan und Anweisungen",
     "assess_plan": "Bewertung und Plan",
-    "patient_instructions": "Patientenanweisungen"
+    "patient_instructions": "Patientenanweisungen",
+    "activity_log": {
+      "title": "Aktivitätsprotokoll",
+      "createdBy": "Erstellt von",
+      "updatedBy": "Aktualisiert von"
+    }
   },
   "delete_consultation_alert": {
     "title": "Löschung bestätigen",

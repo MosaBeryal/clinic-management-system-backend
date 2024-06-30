@@ -12,7 +12,12 @@
     "physical_examination_findings": "Physical Examination Findings",
     "treatment_plans": "Treatment Plan & Instructions",
     "assess_plan": "Assessment and Plan",
-    "patient_instructions": "Patient Instructions"
+    "patient_instructions": "Patient Instructions",
+    "activity_log": {
+      "title": "Activity Log",
+      "createdBy": "Created By",
+      "updatedBy": "Updated By"
+    }
   },
   "delete_consultation_alert": {
     "title": "Confirm Deletion",

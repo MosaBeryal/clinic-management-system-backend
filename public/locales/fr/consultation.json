@@ -12,7 +12,12 @@
     "physical_examination_findings": "Résultats de l'examen physique",
     "treatment_plans": "Plan de traitement et instructions",
     "assess_plan": "Évaluation et plan",
-    "patient_instructions": "Instructions pour le patient"
+    "patient_instructions": "Instructions pour le patient",
+    "activity_log": {
+      "title": "Journal d'activité",
+      "createdBy": "Créé par",
+      "updatedBy": "Mis à jour par"
+    }
   },
   "delete_consultation_alert": {
     "title": "Confirmer la suppression",

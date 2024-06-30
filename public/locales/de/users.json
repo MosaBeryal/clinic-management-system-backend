@@ -28,37 +28,48 @@
     "unblock_user": "Benutzer freigeben",
     "delete_user": "Benutzer löschen"
   },
-  "user_roles": {
-    "admin": "Administrator",
-    "doctor": "Arzt",
-    "replacing doctor": "Vertretungsarzt",
-    "assistant": "Assistent",
-    "secretary": "Sekretär"
-  },
   "user_form": {
     "title": "Benutzer",
-    "description": "Änderungen Vornehmen",
+    "profile_title": "Profil",
+    "profile_description": "Überprüfen Sie Ihre Profildaten und aktualisieren Sie Ihr Passwort bei Bedarf.",
+    "description": "Änderungen vornehmen",
     "first_name": {
       "label": "Vorname",
-      "placeholder": "z.B. John"
+      "placeholder": "z.B., John"
     },
     "last_name": {
       "label": "Nachname",
-      "placeholder": "z.B. Doe"
+      "placeholder": "z.B., Doe"
     },
     "email": {
       "label": "E-Mail",
-      "placeholder": "z.B. johndoe@gmail.com"
+      "placeholder": "z.B., johndoe@gmail.com"
     },
     "password": {
       "label": "Passwort",
-      "placeholder": "z.B. admin@1234"
+      "placeholder": "z.B., admin@1234"
     },
     "role": {
       "label": "Rolle",
-      "placeholder": "z.B. Rolle Wählen"
+      "placeholder": "z.B., Rolle auswählen",
+      "options": {
+        "admin": "Administrator",
+        "doctor": "Arzt",
+        "replacing doctor": "Vertretungsarzt",
+        "assistant": "Assistent",
+        "secretary": "Sekretär"
+      }
     },
-    "submit_action": "Speichern"
+    "old_password": {
+      "label": "Altes Passwort",
+      "placeholder": "z.B., geben Sie Ihr altes Passwort ein"
+    },
+    "new_password": {
+      "label": "Neues Passwort",
+      "placeholder": "z.B., geben Sie Ihr neues Passwort ein"
+    },
+    "submit_action": "Speichern",
+    "change_password_action": "Passwort ändern"
   },
   "delete_user_alert": {
     "title": "Löschung Bestätigen",

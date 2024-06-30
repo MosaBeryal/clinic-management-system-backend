@@ -13,7 +13,12 @@
     "total_amount_due": "Gesamtbetrag",
     "payment_information": "Zahlungsinformationen",
     "date_of_payment": "Zahlungsdatum",
-    "payment_method": "Zahlungsmethode"
+    "payment_method": "Zahlungsmethode",
+    "activity_log": {
+      "title": "Aktivitätsprotokoll",
+      "createdBy": "Erstellt von",
+      "updatedBy": "Aktualisiert von"
+    }
   },
   "delete_medical_bill_alert": {
     "title": "Löschung bestätigen",

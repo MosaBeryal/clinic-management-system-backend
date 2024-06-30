@@ -16,7 +16,12 @@
     "abnormilities": "Abnormilities",
     "impressions_and_recommendations": "Impressions & Recommendations",
     "impressions": "Impressions",
-    "recommendations": "Recommendations"
+    "recommendations": "Recommendations",
+    "activity_log": {
+      "title": "Activity Log",
+      "createdBy": "Created By",
+      "updatedBy": "Updated By"
+    }
   },
   "delete_medical_imaging_alert": {
     "title": "Confirm Deletion",

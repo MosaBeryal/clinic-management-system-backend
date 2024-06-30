@@ -16,7 +16,12 @@
     "abnormilities": "Anomalies",
     "impressions_and_recommendations": "Impressions et recommandations",
     "impressions": "Impressions",
-    "recommendations": "Recommandations"
+    "recommendations": "Recommandations",
+    "activity_log": {
+      "title": "Journal d'activité",
+      "createdBy": "Créé par",
+      "updatedBy": "Mis à jour par"
+    }
   },
   "delete_medical_imaging_alert": {
     "title": "Confirmer la suppression",

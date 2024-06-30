@@ -15,7 +15,12 @@
     "current_medications": "Current Medications",
     "medical_conditions": "Medical Conditions",
     "instructions": "Instructions",
-    "patient_instructions": "Patient Instructions"
+    "patient_instructions": "Patient Instructions",
+    "activity_log": {
+      "title": "Activity Log",
+      "createdBy": "Created By",
+      "updatedBy": "Updated By"
+    }
   },
   "delete_medication_alert": {
     "title": "Confirm Deletion",

@@ -16,6 +16,8 @@
     "gender": "Geschlecht",
     "updatedAt": "Zuletzt aktualisiert",
     "contact": "Kontakt",
+    "createdBy": "Erstellt von",
+    "updatedBy": "Aktualisiert von",
     "actions": "Aktionen"
   },
   "table_actions": {
@@ -29,7 +31,7 @@
     "action": "Patient löschen"
   },
   "patient_form": {
-    "title": "Patient",
+    "title": "Geduldig",
     "patient_info_title": "Informationen zum Patienten",
     "patient_id": {
       "label": "Patienten-ID",

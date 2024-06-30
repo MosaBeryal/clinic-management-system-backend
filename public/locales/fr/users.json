@@ -28,37 +28,48 @@
     "unblock_user": "Débloquer l'Utilisateur",
     "delete_user": "Supprimer l'Utilisateur"
   },
-  "user_roles": {
-    "admin": "Administrateur",
-    "doctor": "Médecin",
-    "replacing doctor": "Médecin Remplaçant",
-    "assistant": "Assistant",
-    "secretary": "Secrétaire"
-  },
   "user_form": {
     "title": "Utilisateur",
-    "description": "Apporter des Modifications",
+    "profile_title": "Profil",
+    "profile_description": "Vérifiez les détails de votre profil et mettez à jour votre mot de passe si nécessaire.",
+    "description": "Apporter des modifications",
     "first_name": {
       "label": "Prénom",
-      "placeholder": "ex. : John"
+      "placeholder": "p.ex., Jean"
     },
     "last_name": {
-      "label": "Nom de Famille",
-      "placeholder": "ex. : Doe"
+      "label": "Nom de famille",
+      "placeholder": "p.ex., Dupont"
     },
     "email": {
       "label": "E-mail",
-      "placeholder": "ex. : johndoe@gmail.com"
+      "placeholder": "p.ex., jean.dupont@gmail.com"
     },
     "password": {
-      "label": "Mot de Passe",
-      "placeholder": "ex. : admin@1234"
+      "label": "Mot de passe",
+      "placeholder": "p.ex., admin@1234"
     },
     "role": {
       "label": "Rôle",
-      "placeholder": "ex. : Sélectionner un Rôle"
+      "placeholder": "p.ex., Sélectionnez un rôle",
+      "options": {
+        "admin": "Administrateur",
+        "doctor": "Médecin",
+        "replacing doctor": "Médecin remplaçant",
+        "assistant": "Assistant",
+        "secretary": "Secrétaire"
+      }
     },
-    "submit_action": "Enregistrer"
+    "old_password": {
+      "label": "Ancien mot de passe",
+      "placeholder": "p.ex., entrez votre ancien mot de passe"
+    },
+    "new_password": {
+      "label": "Nouveau mot de passe",
+      "placeholder": "p.ex., entrez votre nouveau mot de passe"
+    },
+    "submit_action": "Enregistrer",
+    "change_password_action": "Changer le mot de passe"
   },
   "user_statues": {
     "active": "actif",

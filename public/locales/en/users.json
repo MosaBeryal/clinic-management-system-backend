@@ -1,4 +1,9 @@
 {
+  "user_profile": {
+    "2fa_action": "Enable Two Factor",
+    "change_password_action": "Change Password",
+    "logout_action": "Logout"
+  },
   "user_header": {
     "main_title": "Manage Users",
     "add_user_action": "Add User"
@@ -28,15 +33,10 @@
     "unblock_user": "Unblock User",
     "delete_user": "Delete User"
   },
-  "user_roles": {
-    "admin": "Admin",
-    "doctor": "Doctor",
-    "replacing doctor": "Replacing Doctor",
-    "assistant": "Assistant",
-    "secretary": "Secretary"
-  },
   "user_form": {
     "title": "User",
+    "profile_title": "Profile",
+    "profile_description": "Review your profile details and update your password if needed.",
     "description": "Make Changes",
     "first_name": {
       "label": "First Name",
@@ -56,9 +56,25 @@
     },
     "role": {
       "label": "Role",
-      "placeholder": "e.g., Select Role"
+      "placeholder": "e.g., Select Role",
+      "options": {
+        "admin": "Admin",
+        "doctor": "Doctor",
+        "replacing doctor": "Replacing Doctor",
+        "assistant": "Assistant",
+        "secretary": "Secretary"
+      }
     },
-    "submit_action": "Save"
+    "old_password": {
+      "label": "Old Password",
+      "placeholder": "e.g., enter your old password"
+    },
+    "new_password": {
+      "label": "New Password",
+      "placeholder": "e.g., enter your new password"
+    },
+    "submit_action": "Save",
+    "change_password_action": "Change Password"
   },
   "delete_user_alert": {
     "title": "Confirm Deletion",
