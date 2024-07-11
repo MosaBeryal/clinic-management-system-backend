@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.MedicalBill, { foreignKey: "patientId" });
       this.hasMany(models.Medication, { foreignKey: "patientId" });
       this.hasMany(models.MedicalImagingExam, { foreignKey: "patientId" });
+      this.hasMany(models.ConsultationTemplate, { foreignKey: "patientId" });
     }
   }
   Patient.init(
@@ -38,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       phoneNumber: DataTypes.STRING,
       email: DataTypes.STRING,
       createdBy: DataTypes.TEXT,
-      updatedBy: DataTypes.TEXT
+      updatedBy: DataTypes.TEXT,
     },
     {
       sequelize,

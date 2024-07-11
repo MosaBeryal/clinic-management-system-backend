@@ -84,7 +84,7 @@ exports.addImagingExam = async (req, res) => {
       imagingExamDate,
       abnormalities,
       impressions,
-      recommendations
+      recommendations,
     } = req.body;
 
     const newExam = await MedicalImagingExam.create({
@@ -102,7 +102,7 @@ exports.addImagingExam = async (req, res) => {
       abnormalities,
       impressions,
       recommendations,
-      createdBy
+      createdBy,
     });
 
     res.status(201).json({
@@ -120,12 +120,9 @@ exports.updateImagingExam = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const {user} = req.user
-    const updatedBy = 
+    const { user } = req.user;
 
-    
-    updateFields.updatedBy=user.firstName + " " + user.lastName
-
+    updateFields.updatedBy = user.firstName + " " + user.lastName;
 
     await MedicalImagingExam.update(updateFields, { where: { id } });
 

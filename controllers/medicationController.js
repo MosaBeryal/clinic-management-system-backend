@@ -119,7 +119,7 @@ exports.addMedication = async (req, res) => {
     return res.status(404).json({ error: "Patient not found." });
   }
 
-  const createdBy = user.firstName +" " + user.lastName;
+  const createdBy = user.firstName + " " + user.lastName;
 
   const {
     medicalLicenseNumber,
@@ -173,13 +173,11 @@ exports.updateMedication = async (req, res) => {
   try {
     const medicationId = req.params.id;
 
-    const {user} = req.user
+    const { user } = req.user;
 
     const updateFields = req.body;
 
-    updateFields.updatedBy= user.firstName + " " + user.lastName
-
-    
+    updateFields.updatedBy = user.firstName + " " + user.lastName;
 
     // Update the medication with the provided fields
     const [updatedRows] = await Medication.update(updateFields, {
