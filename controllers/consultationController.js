@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 const { isValidDate } = require("../utils/utils");
 const { validationResult } = require("express-validator");
 
+
 exports.getConsultations = async (req, res) => {
   try {
     const { patientId } = req.params;
@@ -136,7 +137,7 @@ exports.updateConsultation = async (req, res) => {
     const consultationId = req.params.id;
 
     const consultation = await Consultation.findByPk(consultationId);
-    
+
     if (!consultation) {
       return res.status(400).json({ message: "Consultation not found" });
     }

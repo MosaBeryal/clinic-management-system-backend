@@ -14,7 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.MedicalBill, { foreignKey: "patientId" });
       this.hasMany(models.Medication, { foreignKey: "patientId" });
       this.hasMany(models.MedicalImagingExam, { foreignKey: "patientId" });
-      this.hasMany(models.ConsultationTemplate, { foreignKey: "patientId" });
+      this.hasMany(models.AssignedTemplate, {
+        foreignKey: "patientId"
+      });
     }
   }
   Patient.init(

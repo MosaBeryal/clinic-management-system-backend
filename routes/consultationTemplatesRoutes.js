@@ -4,7 +4,9 @@ const consultationTemplateController = require("../controllers/consultationTempl
 const authenticate = require("../middleware/auth");
 const consultationTemplate = require("../models/consultationTemplate");
 
+router.get("/", consultationTemplateController.getAllConsultationTemplates);
 router.get("/:id", consultationTemplateController.getTemplateById);
 router.post("/", consultationTemplateController.createTemplate);
+router.patch("/:id", consultationTemplateController.updateConsultationTemplate);
 
 module.exports = router;
