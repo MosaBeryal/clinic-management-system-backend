@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const consultationTemplateController = require("../controllers/consultationTemplates");
 const authenticate = require("../middleware/auth");
-const consultationTemplate = require("../models/consultationTemplate");
 
 router.get("/", consultationTemplateController.getAllConsultationTemplates);
 router.get("/:id", consultationTemplateController.getTemplateById);
