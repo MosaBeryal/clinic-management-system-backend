@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const assignedTemplateController= require("../controllers/assignedTemplate");
+const assignedTemplateController = require("../controllers/assignedTemplate");
 const authenticate = require("../middleware/auth");
 
-router.post("/:patientId", assignedTemplateController.addAndAssignTemplate)
+router.post("/:patientId", assignedTemplateController.addAndAssignTemplate);
+router.get("/:patientId", assignedTemplateController.getAssignedTemplatesForPatient);
 
 module.exports = router;

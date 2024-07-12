@@ -36,7 +36,7 @@ app.use("/api/medication/", medicationRoutes);
 app.use("/api/imaging-exam/", imagingExamRoutes);
 app.use("/api/medical-billing/", medicalBillingRoutes);
 app.use("/api/consultation-template/", consultationTemplateRoutes);
-app.use("/api/assign-template/", assignTemplateRoutes);
+app.use("/api/templates/", assignTemplateRoutes);
 app.use("/api/medicine/", medicineRoutes);
 
 // Serve index.html file when someone accesses the main route
