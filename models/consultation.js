@@ -3,20 +3,20 @@ const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class Consultation extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
       this.belongsTo(models.Patient, {
-        foreignKey: "patientId", // Set patientId as the foreign key in the Consultation table
-        onDelete: "CASCADE", // Add any cascade options if needed
+        foreignKey: "patientId", 
+        onDelete: "CASCADE", 
         onUpdate: "CASCADE",
+      });
+      this.hasMany(models.ConsultationFiles, {
+        as: "consultationFiles",
+        foreignKey: "consultationId",
+        onDelete: "CASCADE",
       });
     }
   }
+
   Consultation.init(
     {
       medicalLicenseNumber: DataTypes.STRING,

@@ -1,21 +1,30 @@
 module.exports = (sequelize, DataTypes) => {
-  const AssignedTemplate = sequelize.define("AssignedTemplate", {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  });
+  const AssignedConsultationTemplate = sequelize.define(
+    "AssignedConsultationTemplate",
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    }
+  );
 
-  AssignedTemplate.associate = (models) => {
-    AssignedTemplate.hasMany(models.AssignedSection, {
+  AssignedConsultationTemplate.associate = (models) => {
+    AssignedConsultationTemplate.hasMany(models.AssignedSection, {
       as: "sections",
       foreignKey: "assignedConsultationTemplateId",
     });
-    AssignedTemplate.belongsTo(models.Patient, {
+
+    AssignedConsultationTemplate.hasMany(models.ConsultationFiles, {
+      as: "consultationFiles",
+      foreignKey: "assignedConsultationTemplateId", 
+    });
+
+    AssignedConsultationTemplate.belongsTo(models.Patient, {
       foreignKey: "patientId",
       onDelete: "CASCADE",
     });
   };
 
-  return AssignedTemplate;
+  return AssignedConsultationTemplate;
 };

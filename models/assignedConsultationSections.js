@@ -4,12 +4,11 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   AssignedSection.associate = (models) => {
-    AssignedSection.hasMany(models.AssignedField, { as: "sectionFields" ,
+    AssignedSection.hasMany(models.AssignedField, {
+      as: "sectionFields",
       foreignKey: "assignedSectionId",
-    }
-
-    );
-    AssignedSection.belongsTo(models.AssignedTemplate, {
+    });
+    AssignedSection.belongsTo(models.AssignedConsultationTemplate, {
       foreignKey: "assignedConsultationTemplateId",
       onDelete: "CASCADE",
     });

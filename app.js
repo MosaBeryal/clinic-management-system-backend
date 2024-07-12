@@ -18,6 +18,7 @@ const medicalBillingRoutes = require("./routes/medicalBillingRoutes");
 const medicineRoutes = require("./routes/medicineRoutes");
 const consultationTemplateRoutes = require("./routes/consultationTemplatesRoutes");
 const assignTemplateRoutes = require("./routes/assignedTemplateRoutes");
+const consultationFileUploadRoutes = require("./routes/consultationFiles");
 const authenticateToken = require("./middleware/auth");
 
 app.use(express.urlencoded({ extended: true }));
@@ -37,6 +38,7 @@ app.use("/api/imaging-exam/", imagingExamRoutes);
 app.use("/api/medical-billing/", medicalBillingRoutes);
 app.use("/api/consultation-template/", consultationTemplateRoutes);
 app.use("/api/templates/", assignTemplateRoutes);
+app.use("/api/consultation-files/", consultationFileUploadRoutes);
 app.use("/api/medicine/", medicineRoutes);
 
 // Serve index.html file when someone accesses the main route
