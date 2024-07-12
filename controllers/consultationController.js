@@ -1,8 +1,8 @@
-const { Consultation, Patient } = require("../models");
+const { Consultation, Patient, ConsultationFiles } = require("../models");
 const { Op } = require("sequelize");
 const { isValidDate } = require("../utils/utils");
 const { validationResult } = require("express-validator");
-
+const consultationFiles = require("../models/consultationFiles");
 
 exports.getConsultations = async (req, res) => {
   try {
@@ -25,6 +25,13 @@ exports.getConsultations = async (req, res) => {
     const queryOptions = {
       where: { patientId },
       include: [{ model: Patient, attributes: ["patientName"] }],
+      include: [
+        {
+          model: ConsultationFiles,
+          attributes: ["id", "fileName"],
+          as: "consultationFiles",
+        },
+      ],
     };
 
     if (date) {

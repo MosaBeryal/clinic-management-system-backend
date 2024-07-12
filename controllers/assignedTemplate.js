@@ -1,7 +1,8 @@
 const {
-  AssignedTemplate,
+  AssignedConsultationTemplate,
   AssignedSection,
   AssignedField,
+  ConsultationFiles,
   Patient,
 } = require("../models");
 
@@ -9,7 +10,7 @@ exports.addAndAssignTemplate = async (req, res) => {
   const { name, sections } = req.body;
 
   try {
-    const createdTemplate = await AssignedTemplate.create({ name });
+    const createdTemplate = await AssignedConsultationTemplate.create({ name });
     if (sections && sections.length > 0) {
       for (const section of sections) {
         const { sectionTitle, sectionFields } = section;
@@ -55,7 +56,7 @@ exports.getAssignedTemplatesForPatient = async (req, res) => {
   const { patientId } = req.params;
 
   try {
-    const assignedTemplates = await AssignedTemplate.findAll({
+    const assignedTemplates = await AssignedConsultationTemplate.findAll({
       where: { patientId },
       include: [
         {
@@ -67,6 +68,11 @@ exports.getAssignedTemplatesForPatient = async (req, res) => {
               as: "sectionFields",
             },
           ],
+        },
+        {
+          model: ConsultationFiles,
+          attributes: ["id", "fileName"],
+          as: "consultationFiles",
         },
         {
           model: Patient,
