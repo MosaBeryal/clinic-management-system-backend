@@ -95,7 +95,9 @@ exports.updateConsultationTemplate = async (req, res) => {
     });
 
     if (!template) {
-      return res.status(404).json({ message: "Consultation template not found" });
+      return res
+        .status(404)
+        .json({ message: "Consultation template not found" });
     }
 
     // Update the consultation template name
@@ -155,6 +157,29 @@ exports.updateConsultationTemplate = async (req, res) => {
       message: "Consultation template updated successfully",
       data: updatedTemplate,
     });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.deleteConsultationTemplate = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const template = await ConsultationTemplate.findByPk(id);
+
+    if (!template) {
+      return res
+        .status(404)
+        .json({ message: "Consultation template not found" });
+    }
+
+    await template.destroy();
+
+    res
+      .status(200)
+      .json({ message: "Consultation template deleted successfully" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });

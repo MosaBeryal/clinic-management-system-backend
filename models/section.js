@@ -7,7 +7,10 @@ module.exports = (sequelize, DataTypes) => {
 
   Section.associate = (models) => {
     Section.belongsTo(models.ConsultationTemplate);
-    Section.hasMany(models.Field, { as: 'sectionFields' });
+    Section.hasMany(models.Field, { as: 'sectionFields',
+      onDelete: "CASCADE", 
+      onUpdate: "CASCADE",
+     });
   };
 
   return Section;
