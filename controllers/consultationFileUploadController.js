@@ -21,7 +21,7 @@ exports.uploadFile = async (req, res) => {
       const consultation = await Consultation.findByPk(consultationId);
       if (!consultation) {
         // Remove uploaded file if consultation doesn't exist
-        fs.unlinkSync(path.join(__dirname, "..", "uploads", req.file.filename));
+        fs.unlinkSync(path.join(__dirname, "..", "public", "uploads", req.file.filename));
         return res.status(404).json({ message: "Consultation not found" });
       }
 
@@ -30,12 +30,10 @@ exports.uploadFile = async (req, res) => {
         consultationId,
       });
     } else if (consultationType === "template") {
-      const template = await AssignedConsultationTemplate.findByPk(
-        assignedConsultationTemplateId
-      );
+      const template = await AssignedConsultationTemplate.findByPk(assignedConsultationTemplateId);
       if (!template) {
         // Remove uploaded file if template doesn't exist
-        fs.unlinkSync(path.join(__dirname, "..", "uploads", req.file.filename));
+        fs.unlinkSync(path.join(__dirname, "..", "public", "uploads", req.file.filename));
         return res.status(404).json({ message: "Template not found" });
       }
 
@@ -45,7 +43,7 @@ exports.uploadFile = async (req, res) => {
       });
     } else {
       // Remove uploaded file if consultationType is invalid
-      fs.unlinkSync(path.join(__dirname, "..", "uploads", req.file.filename));
+      fs.unlinkSync(path.join(__dirname, "..", "public", "uploads", req.file.filename));
       return res.status(400).json({ message: "Invalid consultation type" });
     }
 
@@ -55,9 +53,12 @@ exports.uploadFile = async (req, res) => {
     });
   } catch (error) {
     console.error("Error uploading file:", error);
+    // Remove uploaded file in case of any other errors
+    fs.unlinkSync(path.join(__dirname, "..", "public", "uploads", req.file.filename));
     res.status(500).json({ message: "Failed to upload file" });
   }
 };
+
 
 exports.getFiles = async (req, res) => {
   const { consultationType, id } = req.query;
