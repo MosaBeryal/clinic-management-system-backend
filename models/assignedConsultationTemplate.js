@@ -18,6 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     AssignedConsultationTemplate.hasMany(models.ConsultationFiles, {
       as: "consultationFiles",
       foreignKey: "assignedConsultationTemplateId", 
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     });
 
     AssignedConsultationTemplate.belongsTo(models.Patient, {
