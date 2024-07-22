@@ -68,5 +68,20 @@
       "placeholder": "eg., Write Here"
     },
     "submit_action": "Save Data"
+  },
+  "table_toolbar": {
+    "selected_templates": "Selected",
+    "total_templates": "Total Templates",
+    "dropdown_action": {
+      "title": "Choose Action",
+      "option_one": "Options 1",
+      "option_two": "Options 2"
+    }
+  },
+  "table_header": {
+    "name": "Template Name",
+    "createdAt": "Created At",
+    "updatedAt": "Last Updated",
+    "actions": "Actions"
   }
 }
