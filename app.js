@@ -46,6 +46,28 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+app.use("/api/files", express.static(path.join(__dirname, "public/uploads")));
+
+// Endpoint to serve files by filename
+app.get("/api/file/:filename", (req, res) => {
+  // Decode the filename to handle spaces and special characters
+  const filename = decodeURIComponent(req.params.filename);
+  const filePath = path.join(__dirname, "public/uploads", filename);
+
+  console.log(`Serving file: ${filePath}`);
+
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error(err);
+      if (err.code === "ENOENT") {
+        res.status(404).send("File not found");
+      } else {
+        res.status(500).send("Internal Server Error");
+      }
+    }
+  });
+});
+
 sequelize
   .sync({ alter: true })
   .then(() => {

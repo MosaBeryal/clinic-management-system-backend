@@ -1,13 +1,19 @@
 const multer = require("multer");
 const path = require("path");
 
+// Function to sanitize the filename
+const sanitizeFilename = (filename) => {
+  return filename.replace(/[^a-zA-Z0-9.-]/g, '_');
+};
+
 // Configure storage for uploaded files
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public/uploads/");
   },
   filename: function (req, file, cb) {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    const sanitizedFilename = sanitizeFilename(file.originalname);
+    cb(null, `${Date.now()}-${sanitizedFilename}`);
   },
 });
 
