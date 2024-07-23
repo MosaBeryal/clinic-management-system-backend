@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 
     ConsultationFiles.belongsTo(models.AssignedConsultationTemplate, {
       foreignKey: "assignedConsultationTemplateId",
-      as:"consultationFiles",
+      as:"consultationFiles",   
       onDelete: "CASCADE",
     });
   };

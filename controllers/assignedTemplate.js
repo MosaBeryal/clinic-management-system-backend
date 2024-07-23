@@ -95,3 +95,30 @@ exports.getAssignedTemplatesForPatient = async (req, res) => {
     });
   }
 };
+
+// delete assign template
+
+exports.deleteAssignedTemplate = async (req, res) => {
+  const { templateId } = req.params;
+
+  try {
+    const assignedTemplate = await AssignedConsultationTemplate.findByPk(
+      templateId
+    );
+
+    if (!assignedTemplate) {
+      return res.status(404).json({ message: "Assigned template not found" });
+    }
+
+    await assignedTemplate.destroy();
+
+    return res.status(200).json({
+      message: "Assigned template deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting assigned template:", error);
+    return res
+      .status(500)
+      .json({ message: "Failed to delete assigned template" });
+  }
+};
