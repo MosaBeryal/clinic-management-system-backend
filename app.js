@@ -48,15 +48,15 @@ app.get("/", (req, res) => {
 
 app.use("/api/files", express.static(path.join(__dirname, "public/uploads")));
 
-// Endpoint to serve files by filename
 app.get("/api/file/:filename", (req, res) => {
   // Decode the filename to handle spaces and special characters
   const filename = decodeURIComponent(req.params.filename);
   const filePath = path.join(__dirname, "public/uploads", filename);
 
-  console.log(`Serving file: ${filePath}`);
+  console.log(`Downloading file: ${filePath}`);
 
-  res.sendFile(filePath, (err) => {
+  // Set headers to trigger download
+  res.download(filePath, filename, (err) => {
     if (err) {
       console.error(err);
       if (err.code === "ENOENT") {
